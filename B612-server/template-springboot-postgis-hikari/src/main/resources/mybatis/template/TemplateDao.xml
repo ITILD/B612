@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gis.template.dao.TemplateDao">
+    <!--<insert id="addResult" parameterType="java.util.Map">-->
+
+        <!--insert  into uav_path_full-->
+        <!--<foreach collection="map.keys" item="key" open="(" close=")" separator=",">-->
+            <!--<if test="null != map[key]">-->
+            <!--${key}-->
+            <!--</if>-->
+        <!--</foreach>-->
+        <!--values-->
+        <!--<foreach collection="map.keys" item="key" open="(" close=")" separator=",">-->
+            <!--<if test="null != map[key]">-->
+            <!--#{map[${key}]}-->
+            <!--</if>-->
+        <!--</foreach>-->
+
+    <!--</insert>-->
+    <insert id="addResult" parameterType="java.util.Map">
+
+        insert  into ${tableName}
+        <foreach collection="map.keys" item="key" open="(" close=")" separator=",">
+                ${key}
+
+        </foreach>
+        values
+        <foreach collection="map.keys" item="key" open="(" close=")" separator=",">
+
+                #{map[${key}]}
+
+        </foreach>
+
+    </insert>
+
+</mapper>

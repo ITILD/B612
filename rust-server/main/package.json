@@ -1,0 +1,7 @@
+{
+	"name": "rust-main",
+	"scripts": {
+		"watch":"cargo watch -q -c -w src/ -x run",
+		"libtree": "cargo tree"
+	}
+}

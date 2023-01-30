@@ -6,6 +6,18 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-axum = "0.6.3"
-serde_json = "1.0.91"
+
+# async runtime lib
 tokio = { version = "1.24.2", features = ["full"] }
+# http
+axum = "0.6.3"
+# format
+serde = { version = "1.0.152", features = ["derive"] }
+serde_json = "1.0.91"
+
+# log
+log = "0.4.17"
+fast_log = "1.5.51"
+
+# orm native-tls使用平台的原生安全设施
+sea-orm = { version = "^0.10.7", features = ["sqlx-sqlite", "runtime-tokio-native-tls", "macros"] }

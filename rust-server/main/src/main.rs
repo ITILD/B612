@@ -3,7 +3,7 @@ use axum::{response::Html, routing::get, Router};
 use serde::Serialize;
 use serde_json::Value;
 use std::net::SocketAddr;
-use template::base::*;
+mod template;
 
 #[tokio::main]
 async fn main() {
@@ -54,7 +54,6 @@ async fn json() -> Json<Value> {
 }
 
 
-async fn test() -> &'static str {
-    varBase();
-    "Hello, axum.rs"
+async fn test() ->Json<HashMap<String,String>> {
+    template::base::base();
 }

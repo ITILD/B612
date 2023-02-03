@@ -1,5 +1,5 @@
 use axum::extract::Json;
-use axum::{response::Html, routing::get, Router};
+use axum::{response::Html, routing::get,routing::post, Router};
 use serde::Serialize;
 use serde_json::Value;
 use std::net::SocketAddr;
@@ -7,17 +7,27 @@ mod template;
 
 #[tokio::main]
 async fn main() {
+    let user_routes = Router::new().route("/:id", get(|| async {}));
+
+    let team_routes = Router::new().route("/", post(|| async {}));
+
+    let api_routes = Router::new()
+        .nest("/users", user_routes)
+        .nest("/teams", team_routes);
     // build our application with a route
-    let app = Router::new()
+    let router = Router::new();
+    let app = router
         .route("/", get(handler))
         .route("/login", get(login))
         .route("/json", get(json))
-        .route("/test", get(test));
+        .route("/test", get(test))
+        .nest("/api", api_routes);
 
     // run it
     let addr = SocketAddr::from(([127, 0, 0, 1], 8800));
     // 快捷调试跳转
     println!("listening on http://{}", addr);
+
     let start_information = "connect startInformation";
     println!("{}", start_information);
     axum::Server::bind(&addr)
@@ -27,7 +37,6 @@ async fn main() {
 
     println!("{}!", start_information);
 }
-
 
 #[derive(Serialize)]
 struct Info {
@@ -53,7 +62,12 @@ async fn json() -> Json<Value> {
     Json(json)
 }
 
-
-async fn test() ->Json<HashMap<String,String>> {
-    template::base::base();
+async fn test() -> Json<String> {
+    let base = template::base::base();
+    // 将 HashMap 转换为 JSON 字符串
+    let json_str = serde_json::to_string(&base).unwrap();
+    Json(json_str)
+    // axum::Json(json_str)
+    // 将 JSON 字符串转换为 HashMap
+    // let data: HashMap<String, i32> = from_str(&json_str).unwrap();
 }

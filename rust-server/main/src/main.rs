@@ -1,5 +1,5 @@
 use axum::extract::Json;
-use axum::{response::Html, routing::get,routing::post, Router};
+use axum::{response::Html, routing::get, routing::post, Router};
 use serde::Serialize;
 use serde_json::Value;
 use std::net::SocketAddr;
@@ -7,13 +7,15 @@ mod template;
 
 #[tokio::main]
 async fn main() {
-    let user_routes = Router::new().route("/:id", get(|| async {}));
+    // let user_routes = Router::new().route("/:id", get(|| async {}));
 
-    let team_routes = Router::new().route("/", post(|| async {}));
+    // let team_routes = Router::new().route("/", post(|| async {}));
 
-    let api_routes = Router::new()
-        .nest("/users", user_routes)
-        .nest("/teams", team_routes);
+    // let api_routes = Router::new()
+    //     .nest("/users", user_routes)
+    //     .nest("/teams", team_routes);
+
+    let api_routes = template::controller::base::base();
     // build our application with a route
     let router = Router::new();
     let app = router
@@ -63,7 +65,6 @@ async fn json() -> Json<Value> {
 }
 
 async fn test() -> Json<String> {
-    template::controller::base::base();
     let base = template::base::base();
     // 将 HashMap 转换为 JSON 字符串
     let json_str = serde_json::to_string(&base).unwrap();

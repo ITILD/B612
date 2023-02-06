@@ -1,3 +1,5 @@
+// 我们不需要使用 use 指令来使用 axum - 它在项目下的文件全局可用，
+// 因为它在 Cargo.toml 中被声明为依赖（rust 2018之前的版本则不是这样）
 use axum::extract::Json;
 use std::collections::HashMap;
 pub fn base() -> HashMap<&'static str, &'static str> {

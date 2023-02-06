@@ -63,6 +63,7 @@ async fn json() -> Json<Value> {
 }
 
 async fn test() -> Json<String> {
+    template::controller::base::base();
     let base = template::base::base();
     // 将 HashMap 转换为 JSON 字符串
     let json_str = serde_json::to_string(&base).unwrap();

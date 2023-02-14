@@ -7,23 +7,17 @@ mod template;
 
 #[tokio::main]
 async fn main() {
-    // let user_routes = Router::new().route("/:id", get(|| async {}));
 
-    // let team_routes = Router::new().route("/", post(|| async {}));
 
-    // let api_routes = Router::new()
-    //     .nest("/users", user_routes)
-    //     .nest("/teams", team_routes);
-
-    let api_routes = template::controller::base::base();
+    let template_controller = template::controller::base::base();
     // build our application with a route
-    let router = Router::new();
-    let app = router
+    
+    let app = Router::new()
         .route("/", get(handler))
         .route("/login", get(login))
         .route("/json", get(json))
         .route("/test", get(test))
-        .nest("/api", api_routes);
+        .nest("/template", template_controller);
 
     // run it
     let addr = SocketAddr::from(([127, 0, 0, 1], 8800));

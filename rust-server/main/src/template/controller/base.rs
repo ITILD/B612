@@ -1,20 +1,32 @@
-// let user_routes = Router::new().route("/:id", get(|| async {}));
-
-// let team_routes = Router::new().route("/", post(|| async {}));
-
-// let api_routes = Router::new()
-//     .nest("/users", user_routes)
-//     .nest("/teams", team_routes);
-use axum::{routing::get, routing::post, Router};
+use axum::{
+    extract::Json,
+    routing::{get, post},
+    Router,
+};
+use serde_json::Value;
 // pub fn base(router: Router) -> Router {
 pub fn base() -> Router {
-    println!("conrooler {}", "base");
-    let user_routes = Router::new().route("/:id", get(|| async {}));
-    let team_routes = Router::new().route("/", post(|| async {}));
-    // 父 路由
+    // 路由
     let api_routes = Router::new()
-        .nest("/users", user_routes)
-        .nest("/teams", team_routes);
-
+        .nest("/teams", Router::new().route("/", post(|| async {})))
+        .nest(
+            "/json",
+            Router::new()
+                .route("/get", get(json))
+                .route("/post", get(json1))
+                // .route("/put", get(json1))
+                // .route("/patch", get(json1))
+                // .route("/delete", get(json1))
+        );
     api_routes
+}
+
+async fn json() -> Json<Value> {
+    let json: Value = serde_json::from_str(r#"{"id":4,"name":"jiangb2"}"#).unwrap();
+    Json(json)
+}
+
+async fn json1() -> Json<Value> {
+    let json: Value = serde_json::from_str(r#"{"id":4,"name":"jiangb2"}"#).unwrap();
+    Json(json)
 }

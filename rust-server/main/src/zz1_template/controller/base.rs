@@ -1,8 +1,10 @@
+use std::collections::HashMap;
+
 /**
  * 路由和传参
  */
 use axum::{
-    extract::Json,
+    extract::{Json, Query},
     routing::{get, post},
     Router,
 };
@@ -21,26 +23,16 @@ pub fn start() -> Router {
             Router::new().route("/template1", get(template)),
         )
         .nest(
-            "/json",
+            "/json_simple",
             Router::new()
-                .route("/get", get(json::template))
-                .route("/post", get(json_post)),
-            // .route("/put", get(json1))
-            // .route("/patch", get(json1))
-            // .route("/delete", get(json1))
+                .route("/get", get(JsonSimple::get))
+                .route("/post", get(JsonSimple::post))
+                .route("/get_params", get(JsonSimple::get_params)), // .route("/get_params", get(JsonSimple::post)),
+                                                                    // .route("/put", get(JsonSimple::get))
+                                                                    // .route("/patch", get(json1))
+                                                                    // .route("/delete", get(json1))
         );
-    // .nest("/json", Router::new().route("/get", get(json_get)));
-
     api_routes
-}
-
-mod json {
-    use axum::Json;
-    pub async fn template() -> Json<serde_json::Value> {
-        let json: serde_json::Value =
-            serde_json::from_str(r#"{"id":0,"info":"template"}"#).unwrap();
-        axum::extract::Json(json)
-    }
 }
 
 /**
@@ -51,14 +43,41 @@ async fn template() -> Json<Value> {
     let json: Value = serde_json::from_str(r#"{"id":0,"info":"template"}"#).unwrap();
     Json(json)
 }
-// json
-async fn json_get() -> Json<Value> {
-    let json: Value = serde_json::from_str(r#"{"id":4,"name":"jiangb2"}"#).unwrap();
-    Json(json)
+
+/**
+ * restful 端口样式
+ * http://127.0.0.1:8800/zz1_template/base/json_simple
+ */
+struct JsonSimple;
+impl JsonSimple {
+    async fn get() -> Json<Value> {
+        let json: Value = serde_json::from_str(r#"{"id":0,"info":"JsonSimple get"}"#).unwrap();
+        Json(json)
+    }
+    // async fn post() -> String {
+    //     service::base::test();
+    //     let str  = serde_json::from_str(r#"{"id":4,"name":"jiangb2"}"#).unwrap();
+    //     str
+    // }
+    async fn post() -> String{
+        service::base::test();
+        let strThis =  "JsonSimple post1";
+        strThis.to_owned()
+    }
+    // http://127.0.0.1:8800/zz1_template/base/json_simple/get_params?name=wxwxwx&keyword=axum.rs
+    async fn get_params(Query(mut params): Query<HashMap<String, String>>) -> String {
+        let name = params.remove("name").unwrap();
+        println!("{:#?}", name);
+        name
+    }
 }
-// http://127.0.0.1:8800/template/
-async fn json_post() -> Json<Value> {
-    service::base::test();
-    let json: Value = serde_json::from_str(r#"{"id":4,"name":"jiangb2"}"#).unwrap();
-    Json(json)
-}
+
+// 待定
+// mod json {
+//     use axum::Json;
+//     pub async fn template() -> Json<serde_json::Value> {
+//         let json: serde_json::Value =
+//             serde_json::from_str(r#"{"id":0,"info":"template"}"#).unwrap();
+//         axum::extract::Json(json)
+//     }
+// }

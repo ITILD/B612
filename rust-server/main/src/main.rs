@@ -1,69 +1,39 @@
 use axum::extract::Json;
-use axum::{response::Html, routing::get, routing::post, Router};
+use axum::{routing::get, Router};
 use serde::Serialize;
-use serde_json::Value;
 use std::net::SocketAddr;
-mod template;
+// controller
+mod zz1_template;
 
 #[tokio::main]
 async fn main() {
+    // ip 端口
+    let server_url = SocketAddr::from(([127, 0, 0, 1], 8800));
+    println!("connect success\nlistening on http://{}", server_url);
 
-
-    let template_controller = template::controller::base::base();
-    // build our application with a route
-    
+    /* 路由*/
+    // controller 子路由
+    let base = zz1_template::controller::base::start();
+    // 根路由
     let app = Router::new()
-        .route("/", get(handler))
-        .route("/login", get(login))
-        .route("/json", get(json))
-        .route("/test", get(test))
-        .nest("/template", template_controller);
+        .route("/", get(root_handler))
+        .nest("/zz1_template", Router::new().nest("/base", base));
 
-    // run it
-    let addr = SocketAddr::from(([127, 0, 0, 1], 8800));
-    // 快捷调试跳转
-    println!("listening on http://{}", addr);
-
-    let start_information = "connect startInformation";
-    println!("{}", start_information);
-    axum::Server::bind(&addr)
+    axum::Server::bind(&server_url)
         .serve(app.into_make_service())
         .await
         .unwrap();
-
-    println!("{}!", start_information);
 }
 
 #[derive(Serialize)]
 struct Info {
-    web_site: String,
     email: String,
-    level: i32,
+    date: i32,
 }
 
-async fn handler() -> Json<Info> {
-    let info = Info {
-        web_site: "https://axum.rs".to_string(),
-        email: "team@axum.rs".to_string(),
-        level: 123,
-    };
-    Json(info)
-}
-
-async fn login() -> Html<&'static str> {
-    Html("<h1>connect login</h1>")
-}
-async fn json() -> Json<Value> {
-    let json: Value = serde_json::from_str(r#"{"id":4,"name":"jiangb2"}"#).unwrap();
-    Json(json)
-}
-
-async fn test() -> Json<String> {
-    let base = template::base::base();
-    // 将 HashMap 转换为 JSON 字符串
-    let json_str = serde_json::to_string(&base).unwrap();
-    Json(json_str)
-    // axum::Json(json_str)
-    // 将 JSON 字符串转换为 HashMap
-    // let data: HashMap<String, i32> = from_str(&json_str).unwrap();
+async fn root_handler() -> Json<Info> {
+    Json(Info {
+        email: "geolifestudy@gmail.com".to_string(),
+        date: 20230215,
+    })
 }

@@ -1,4 +1,4 @@
-pub mod base;
+pub mod service;
 pub mod controller;
 // // 子模块是私有的
 // mod add;

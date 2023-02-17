@@ -1,57 +1,37 @@
-use std::collections::HashMap;
-
-/**
- * 路由和传参
- */
+use super::super::service;
 use axum::{
     extract::{Json, Query},
     routing::{get, post},
     Router,
 };
 use serde_json::Value;
-//
-use super::super::service;
+use std::collections::HashMap;
 
 // pub fn base(router: Router) -> Router {
 pub fn start() -> Router {
     // 路由
     let api_routes = Router::new()
-        // 当前路由
-        // 模板 http://127.0.0.1:8800/zz1_template/base/template0/template1
-        .nest(
-            "/template0",
-            Router::new().route("/template1", get(template)),
-        )
-        .nest(
-            "/json_simple",
-            Router::new()
-                .route("/get", get(JsonSimple::get))
-                .route("/post", get(JsonSimple::post))
-                .route("/get_params", get(JsonSimple::get_params)), // .route("/get_params", get(JsonSimple::post)),
-                                                                    // .route("/put", get(JsonSimple::get))
-                                                                    // .route("/patch", get(json1))
-                                                                    // .route("/delete", get(json1))
+        // http://127.0.0.1:8800/zz1_template/base/get
+        .route("/get", get(BaseController::get))
+        .route("/post", get(BaseController::post))
+        .route(
+            "/get_params",
+            get(BaseController::get_params), // .route("/get_params", get(base::post)),
+                                             // .route("/put", get(base::get))
+                                             // .route("/patch", get(json1))
+                                             // .route("/delete", get(json1))
         );
     api_routes
 }
 
 /**
- * 简单无参数
- * 返回 json
- */
-async fn template() -> Json<Value> {
-    let json: Value = serde_json::from_str(r#"{"id":0,"info":"template"}"#).unwrap();
-    Json(json)
-}
-
-/**
  * restful 端口样式
- * http://127.0.0.1:8800/zz1_template/base/json_simple
+ * http://127.0.0.1:8800/zz1_template/base/get
  */
-struct JsonSimple;
-impl JsonSimple {
+struct BaseController;
+impl BaseController {
     async fn get() -> Json<Value> {
-        let json: Value = serde_json::from_str(r#"{"id":0,"info":"JsonSimple get"}"#).unwrap();
+        let json: Value = serde_json::from_str(r#"{"id":0,"info":"base get"}"#).unwrap();
         Json(json)
     }
     // async fn post() -> String {
@@ -59,9 +39,9 @@ impl JsonSimple {
     //     let str  = serde_json::from_str(r#"{"id":4,"name":"jiangb2"}"#).unwrap();
     //     str
     // }
-    async fn post() -> String{
+    async fn post() -> String {
         service::base::test();
-        let strThis =  "JsonSimple post1";
+        let strThis = "base post1";
         strThis.to_owned()
     }
     // http://127.0.0.1:8800/zz1_template/base/json_simple/get_params?name=wxwxwx&keyword=axum.rs

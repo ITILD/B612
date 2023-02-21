@@ -20,3 +20,21 @@ async fn test()  {
     // // 将 JSON 字符串转换为 HashMap
     // // let data: HashMap<String, i32> = from_str(&json_str).unwrap();
 }
+
+
+
+// 待定
+// mod json {
+//     use axum::Json;
+//     pub async fn template() -> Json<serde_json::Value> {
+//         let json: serde_json::Value =
+//             serde_json::from_str(r#"{"id":0,"info":"template"}"#).unwrap();
+//         axum::extract::Json(json)
+//     }
+// }
+
+    // async fn post() -> String {
+    //     service::base::test();
+    //     let str  = serde_json::from_str(r#"{"id":4,"name":"jiangb2"}"#).unwrap();
+    //     str
+    // }

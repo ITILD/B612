@@ -3,6 +3,8 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
+		"tauri dev": "pnpm tauri dev",
+		"tauri build": "pnpm tauri build",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",

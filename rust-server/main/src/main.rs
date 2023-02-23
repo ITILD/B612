@@ -16,7 +16,7 @@ async fn main() {
     let base = zz1_template::controller::base::start();
     // 根路由
     let app = Router::new()
-        .route("/", get(root_handler))
+        .route("/", get(root_controller))
         .nest("/zz1_template", Router::new().nest("/base", base));
 
     axum::Server::bind(&server_url)
@@ -30,8 +30,7 @@ struct Info {
     email: String,
     date: i32,
 }
-
-async fn root_handler() -> Json<Info> {
+async fn root_controller() -> Json<Info> {
     Json(Info {
         email: "geolifestudy@gmail.com".to_string(),
         date: 20230215,

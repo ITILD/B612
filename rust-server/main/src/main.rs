@@ -4,7 +4,9 @@ use serde::Serialize;
 use std::net::SocketAddr;
 // controller
 mod zz1_template;
-
+/**
+ * 参考spring 约定大于配置
+ */
 #[tokio::main]
 async fn main() {
     // ip 端口

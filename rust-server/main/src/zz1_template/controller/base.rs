@@ -1,10 +1,11 @@
-use super::super::service;
+use super::super::entity::base::*;
+use super::super::service::base::*;
 use axum::{
     extract::{Json, Path, Query},
+    http::HeaderMap,
     routing::{get, post},
-    Form, Router, http::HeaderMap,
+    Form, Router,
 };
-use serde::Deserialize;
 use serde_json::Value;
 use std::collections::HashMap;
 
@@ -32,10 +33,7 @@ pub fn start() -> Router {
             "/post_params_json_return_str",
             post(BaseController::post_params_json_return_str),
         )
-        .route(
-            "/get_all_headers",
-            get(BaseController::get_all_headers),
-        );
+        .route("/get_all_headers", get(BaseController::get_all_headers));
     api_routes
 }
 
@@ -104,11 +102,11 @@ impl BaseController {
 
 /***************************************************** to delete *****************************************************/
 /***************************************************** controller todo *****************************************************/
-#[derive(Deserialize)]
-pub struct BaseInfoOpt {
-    pub id: Option<i8>,
-    pub info: Option<String>,
-}
+// #[derive(Deserialize)]
+// pub struct BaseInfoOpt {
+//     pub id: Option<i8>,
+//     pub info: Option<String>,
+// }
 
 /***************************************************** controller test *****************************************************/
 // todo

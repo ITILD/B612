@@ -1,3 +1,4 @@
+use super::super::entity::base::*;
 use axum::extract::Json;
 use std::collections::HashMap;
 

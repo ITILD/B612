@@ -6,10 +6,6 @@ use axum::{
     routing::{get, post},
     Form, Router,
 };
-use sea_orm::entity::prelude::*;
-use sea_orm::DeriveEntityModel;
-use sea_orm::{entity::prelude::*, Database};
-use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::collections::HashMap;
 
@@ -31,8 +27,7 @@ pub fn start() -> Router {
             "/post_params_json_return_str",
             post(post_params_json_return_str),
         )
-        .route("/get_all_headers", get(get_all_headers))
-        .route("/get_user_db", get(get_user_db));
+        .route("/get_all_headers", get(get_all_headers));
     api_routes
 }
 
@@ -91,54 +86,9 @@ async fn post_params_json_return_str(Json(args): Json<BaseInfoOpt>) -> String {
     let info = args.info.unwrap_or("nothing".to_string());
     format!("id {}, info: {} of subjects", id, info)
 }
-/**
- * http://127.0.0.1:8800/zz1_template/base/get_params_return_str
- * Deserialize 必须实现
- */
-async fn post_params_json_return_object(Json(args): Json<BaseInfoOpt>) -> BaseInfoOpt {
-    let id = args.id.unwrap_or(0);
-    let info = args.info.unwrap_or("nothing".to_string());
-    let mut base_info_opt = BaseInfoOpt::default();
-    base_info_opt.id = Some(id + 1);
-    // base_info_opt.info = Some("some info".to_string());
-    base_info_opt.info = Some(info.to_string());
-    base_info_opt
-}
 
 async fn get_all_headers(headers: HeaderMap) -> String {
     format!("{:?}", headers)
-}
-
-const DATABASE_URL: &str = "sqlite://seaorm.db";
-#[derive(Clone, Debug, PartialEq, DeriveEntityModel, Serialize, Deserialize)]
-#[sea_orm(table_name = "user")]
-pub struct Model {
-    #[sea_orm(primary_key)]
-    pub id: i32,
-    pub name: String,
-    #[sea_orm(column_type = "Text")]
-    pub password: String,
-}
-
-#[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]
-pub enum Relation {}
-
-impl ActiveModelBehavior for ActiveModel {}
-
-async fn get_user_db(headers: HeaderMap) -> String {
-    get_user_db_c();
-    format!("{:?}", headers)
-}
-
-async fn get_user_db_c() -> Result<DbConn, DbErr> {
-    let db = Database::connect(DATABASE_URL)
-        .await
-        .expect("连接数据库失败");
-    // Migrator::up(&db, None)
-    //     .await
-    //     .expect("迁移失败");
-
-    Ok(db)
 }
 
 /***************************************************** to delete *****************************************************/

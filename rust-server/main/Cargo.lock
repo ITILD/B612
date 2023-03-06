@@ -941,6 +941,7 @@ name = "main"
 version = "0.1.0"
 dependencies = [
  "axum",
+ "dotenvy",
  "fast_log",
  "log",
  "sea-orm",

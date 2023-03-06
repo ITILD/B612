@@ -5,6 +5,9 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[workspace]
+members = ["."]
+
 [dependencies]
 
 # async runtime lib
@@ -21,3 +24,5 @@ fast_log = "1.5.51"
 
 # orm native-tls使用平台的原生安全设施
 sea-orm = { version = "^0.10.7", features = ["sqlx-sqlite", "runtime-tokio-native-tls", "macros"] }
+# 设置.env文件为默认配置
+dotenvy = "0.15.6"

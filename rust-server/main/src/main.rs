@@ -1,7 +1,8 @@
 use axum::extract::Json;
 use axum::{routing::get, Router};
 use serde::Serialize;
-use std::net::SocketAddr;
+use std::str::FromStr;
+use std::{env, net::SocketAddr};
 // controller
 mod zz1_template;
 /**
@@ -9,8 +10,14 @@ mod zz1_template;
  */
 #[tokio::main]
 async fn main() {
+    zz1_template::common::test::test0().await;
     // ip 端口
-    let server_url = SocketAddr::from(([127, 0, 0, 1], 8800));
+    dotenvy::dotenv().ok();
+    let host = env::var("HOST").expect("HOST is not set in .env file");
+    let port = env::var("PORT").expect("PORT is not set in .env file");
+    let server_url = SocketAddr::from_str(&format!("{host}:{port}")).unwrap();
+    // let server_url = SocketAddr::from(([127, 0, 0, 1], 8800));
+
     println!("connect success\nlistening on http://{}", server_url);
 
     /* 路由*/
@@ -25,6 +32,8 @@ async fn main() {
         .serve(app.into_make_service())
         .await
         .unwrap();
+
+
 }
 
 #[derive(Serialize)]

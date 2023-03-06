@@ -4,6 +4,7 @@
 pub mod controller;
 pub mod service;
 pub mod entity;
+pub mod common;
 // // 子模块是私有的
 // mod add;
 // mod sub;

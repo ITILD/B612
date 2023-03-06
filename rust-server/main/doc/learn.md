@@ -11,6 +11,9 @@ cargo install cargo-watch
 # 添加依赖
 cargo add
 
+# env监测
+cargo add dotenvy
+
 
 # 添加数据库版本和迁移工具
 cargo install sea-orm-cli

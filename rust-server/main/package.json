@@ -2,6 +2,7 @@
 	"name": "rust-main",
 	"scripts": {
 		"watch":"cargo watch -q -c -w src/ -x run",
+		"update_entity":"sea-orm-cli generate entity -u sqlite://db/test_tempalte.db -o src/zz1_template/entity_test",
 		"libtree": "cargo tree"
 	}
 }

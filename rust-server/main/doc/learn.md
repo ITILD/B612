@@ -27,5 +27,6 @@ sea-orm-cli migrate init
 cargo install sea-cli --features sqlite
 
 # 使用SeaCli生成SeaORM代码。以下是示例命令：
-sea -f sqlite://path/to/your/database.db --with-schema --output src/models
+# Generate entity files of database `bakery` to `entity/src`
+sea-orm-cli generate entity -u protocol://username:password@localhost/bakery -o entity/src
 ```

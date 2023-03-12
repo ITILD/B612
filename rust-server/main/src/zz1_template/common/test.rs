@@ -9,7 +9,15 @@ pub async fn test0()-> Result<(), DbErr>{
     // Find by primary key
     let user: Option<user::Model> = user::Entity::find_by_id(1).one(&db).await?;
 
-    println!("ID: {:?}", user);
+    match user {
+        Option::Some(something) => {
+            println!("{}", something.id);
+        },
+        Option::None => {
+            println!("user is nothing");
+        }
+    }
+    // println!("ID: {:?}", user);
 
     Ok(())
 

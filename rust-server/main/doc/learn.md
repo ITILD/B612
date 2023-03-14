@@ -28,5 +28,5 @@ cargo install sea-cli --features sqlite
 
 # 使用SeaCli生成SeaORM代码。以下是示例命令：
 # Generate entity files of database `bakery` to `entity/src`
-sea-orm-cli generate entity -u protocol://username:password@localhost/bakery -o entity/src
+sea-orm-cli generate entity -u sqlite://db/test_tempalte.db -o src/zz1_template/entity_test
 ```

@@ -5,12 +5,15 @@ use std::str::FromStr;
 use std::{env, net::SocketAddr};
 // controller
 mod zz1_template;
+mod zz0_test;
 /**
  * 参考spring 约定大于配置
  */
 #[tokio::main]
 async fn main() {
+    
     zz1_template::common::test::test0().await;
+    zz0_test::fn_test::test::test0().await;
     // ip 端口
     dotenvy::dotenv().ok();
     let host = env::var("HOST").expect("HOST is not set in .env file");

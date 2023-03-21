@@ -1,63 +1,60 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import IndexPage from '../views/IndexPage.vue'
+import AutoViewAndLink from './AutoViewAndLink'
 
+const modules =AutoViewAndLink.routes();
+
+const routes = [
+  { path: '/', name: 'home', component: IndexPage },
+  {
+    path: '/user',
+    name: 'user',
+    component:modules['../views/user/IndexLayout.vue'],
+    children: [
+      {
+        path: '',
+        name: 'Login',
+        component: () => import('../views/user/IndexPage.vue')
+      },
+      {
+        path: 'SignUp',
+        name: 'SignUp',
+        component: () => import('../views/user/SignUpView.vue')
+      }
+    ]
+  }
+]
+
+// 生成路由
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    { path: '/', name: 'home', component: HomeView },
-    {
-      path: '/user',
-      name: 'user',
-      component: () => import('../views/user/UserView.vue'),
-      children: [
-        {
-          path: '',
-          name: 'login',
-          component: () => import('../views/user/LoginView.vue')
-        }
-        // {
-        //   path: 'signup',
-        //   name: 'signup',
-        //   component: () => import('../views/user/SignUpView.vue')
-        // }
-      ]
-    }
-  ]
+  routes: routes
 })
-// router.addRoute({
-//   path: '/user/signup',
-//   name: 'signup',
-//   component: () => import('../views/user/SignUpView.vue')
-// })
-
 // router.addRoute('user',{
 //   // path: '/user/signup',
 //   path: 'signup',
 //   name: 'signup',
 //   component: () => import('../views/user/SignUpView.vue')
-// })
-
-
-const navigationList = [
-  {
-    id: 1,
-    icon: 'icon-jurassic_user',
-    name: 'signup',
-    path: 'signup',
-    component: 'user/SignUpView'
-  }
-]
-const navigation =navigationList[0]
+// // })
+// const navigationList = [
+//   {
+//     id: 1,
+//     icon: 'icon-jurassic_user',
+//     name: 'signup',
+//     path: 'signup',
+//     component: 'user/SignUpView'
+//   }
+// ]
 // navigationList.forEach((navigation) => {
-  router.addRoute('user',{
-    path: `${navigation.path}`,
-    // meta: { name: navigation.name, isAsync: true, icon: navigation.icon },
-    name: navigation.name,
-    component: () => import(`../views/${navigation.component}.vue`)
-  })
+//   router.addRoute('user', {
+//     path: `${navigation.path}`,
+//     // meta: { name: navigation.name, isAsync: true, icon: navigation.icon },
+//     name: navigation.name,
+//     component: () => import(`@/views/${navigation.component}.vue`)
+//   })
 // })
 
-console.log(router.getRoutes(), '查看现有路由1')
+// console.log(router.getRoutes(), '查看现有路由1')
 // //asyncRoutestMark 拼接过路由
 // router.beforeEach((to, from, next) => {
 //   // if (!store.state.asyncRoutestMark) {

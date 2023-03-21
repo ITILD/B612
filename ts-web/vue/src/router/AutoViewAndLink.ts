@@ -4,25 +4,37 @@ class AutoViewAndLink {
     const modules = import.meta.glob('../views/**/**/**.vue') //{ eager: true } 同步
     console.log(modules)
     this.modules = modules
-
     const routesA = []
-
+    
     // 路由的glob endsWith  按顺序处理
     for (const routeStr in modules) {
       const route = modules[routeStr]
       const routeStrArr = routeStr.split('/')
-      // 布局
-      // if()
-      // 子首页
+      const lastStr = routeStrArr[routeStrArr.length - 1]
 
-      // 子分页
-
+      // 
       for (let index = 2; index < routeStrArr.length; index++) {
         const element = routeStrArr[index]
         console.log(element)
+
+
+      }
+      console.log(' ')
+      
+      // 布局
+      if (lastStr == 'IndexPage.vue') {
+        
+        continue
+      }
+      // 子首页
+      if (lastStr == 'IndexLayout.vue') {
+        continue
+      }
+      // 子分页
+      if (lastStr.endsWith('View.vue')) {
+        continue
       }
 
-      console.log(' ')
     }
   }
 
@@ -30,7 +42,7 @@ class AutoViewAndLink {
     return this.modules
   }
 
-  links() {}
+  links() { }
 }
 
 // 单例

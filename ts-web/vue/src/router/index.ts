@@ -2,14 +2,15 @@ import { createRouter, createWebHistory } from 'vue-router'
 import IndexPage from '../views/IndexPage.vue'
 import AutoViewAndLink from './AutoViewAndLink'
 
-const modules =AutoViewAndLink.routes();
+const modules = AutoViewAndLink.routes()
 
 const routes = [
   { path: '/', name: 'home', component: IndexPage },
+  { path: '/info', name: 'home1', component: () => import('../views/info/IndexPage.vue') },
   {
     path: '/user',
     name: 'user',
-    component:modules['../views/user/IndexLayout.vue'],
+    component: modules['../views/user/IndexLayout.vue'],
     children: [
       {
         path: '',

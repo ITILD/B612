@@ -39,6 +39,7 @@ class AutoViewAndLink {
       if (lastStr.endsWith('View.vue')) {
         continue
       }
+      //路由转树
     }
 
     console.log(routesTree)

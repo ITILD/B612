@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import IndexPage from '../views/IndexPage.vue'
+import IndexPage from '../views/_P.vue'
 import AutoViewAndLink from './AutoViewAndLink'
 
 const modules = AutoViewAndLink.routes()

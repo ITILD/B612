@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import IndexPage from '../views/_P.vue'
+import IndexPage from '../views/main-i-p.vue'
 import AutoViewAndLink from './AutoViewAndLink'
 
 const modules = AutoViewAndLink.routes()
 
 const routes = [
   { path: '/', name: 'home', component: IndexPage },
-  { path: '/info', name: 'home1', component: () => import('../views/info/IndexPage.vue') },
+  { path: '/info', name: 'home1', component: () => import('../views/info/list-i-p.vue') },
   {
     path: '/user',
     name: 'user',

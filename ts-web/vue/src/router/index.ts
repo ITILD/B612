@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import IndexPage from '../views/main-i-p.vue'
+import IndexPage from '../views/aa-page-main.vue'
 import AutoViewAndLink from './AutoViewAndLink'
 
 const modules = AutoViewAndLink.routes()
@@ -10,12 +10,12 @@ const routes = [
   {
     path: '/user',
     name: 'user',
-    component: modules['../views/user/IndexLayout.vue'],
+    component: modules['../views/user/a0-layerout.vue'],
     children: [
       {
         path: '',
         name: 'Login',
-        component: () => import('../views/user/IndexPage.vue')
+        component: () => import('../views/user/a0-page-login.vue')
       },
       {
         path: 'SignUp',

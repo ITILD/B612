@@ -9,8 +9,21 @@
                 <RouterLink to="/user">用户</RouterLink>
             </nav>
         </div>
+
+        <button @click="show = true"> Login </button>
+        <async-login-popup v-if="show" />
     </header>
 </template>
   
-<style></style>
+
+
+<!-- Use defineAsyncComponent  -->  
+<script setup lang="ts">
+import { defineAsyncComponent, ref } from 'vue'
+// 异步加载登录框
+const show = ref(false)
+const AsyncLoginPopup = defineAsyncComponent(() => import('./popup/AsyncLoginPopup.vue'))
+
+</script>
   
+<style></style>

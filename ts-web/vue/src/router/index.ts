@@ -3,7 +3,6 @@ import IndexPage from '../views/a0-page-main.vue'
 import AutoViewAndLink from './AutoViewAndLink'
 
 const modules = AutoViewAndLink.routes()
-
 const routes = [
   { path: '/', name: 'home', component: IndexPage },
   { path: '/info', name: 'home1', component: () => import('../views/info/list-i-p.vue') },

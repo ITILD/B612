@@ -10,7 +10,7 @@
             </nav>
         </div>
 
-        <button @click="show = true"> Login </button>
+        <button @click="show = !show"> Login </button>
         <async-login-popup v-if="show" />
     </header>
 </template>

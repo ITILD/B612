@@ -1,6 +1,6 @@
 // directives/clickoutside.ts
 // https://juejin.cn/post/6968063117859241992
-import { DirectiveBinding, ObjectDirective } from 'vue'
+import type { DirectiveBinding, ObjectDirective } from 'vue'
 
 type DocumentHandler = <T extends MouseEvent>(e:T) => void
 interface ListProps {
@@ -34,12 +34,12 @@ const handler = (e: MouseEvent) => {
 window.addEventListener('click', handler)
 
 const ClickOutSide: ObjectDirective = {
-  beforeMount(el, binding) {
+  beforeMount(el:HTMLElement, binding: DirectiveBinding) {
     nodeList = {
       documentHandler: createDocumentHandler(el, binding)
     }
   },
-  updated(el, binding) {
+  updated(el:HTMLElement, binding: DirectiveBinding) {
     nodeList = {
       documentHandler: createDocumentHandler(el, binding)
     }

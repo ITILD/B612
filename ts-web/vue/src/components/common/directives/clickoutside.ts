@@ -2,25 +2,18 @@
 // https://juejin.cn/post/6968063117859241992
 import type { DirectiveBinding, ObjectDirective } from 'vue'
 
-type DocumentHandler = <T extends MouseEvent>(e:T) => void
+type DocumentHandler = <T extends MouseEvent>(e: T) => void
 interface ListProps {
   documentHandler?: DocumentHandler
 }
 
 let nodeList: ListProps = {}
 
-function createDocumentHandler(
-  el: HTMLElement,
-  binding: DirectiveBinding
-): DocumentHandler {
+function createDocumentHandler(el: HTMLElement, binding: DirectiveBinding): DocumentHandler {
   return function (e: MouseEvent) {
     const target = e.target as HTMLElement
-    if (el.contains(target)) {
-      return false
-    }
-    if (binding.arg) {
-      binding.value(e)
-    }
+    if (el.contains(target)) return false
+    if (binding.arg) binding.value(e)
   }
 }
 
@@ -34,12 +27,12 @@ const handler = (e: MouseEvent) => {
 window.addEventListener('click', handler)
 
 const ClickOutSide: ObjectDirective = {
-  beforeMount(el:HTMLElement, binding: DirectiveBinding) {
+  beforeMount(el: HTMLElement, binding: DirectiveBinding) {
     nodeList = {
       documentHandler: createDocumentHandler(el, binding)
     }
   },
-  updated(el:HTMLElement, binding: DirectiveBinding) {
+  updated(el: HTMLElement, binding: DirectiveBinding) {
     nodeList = {
       documentHandler: createDocumentHandler(el, binding)
     }

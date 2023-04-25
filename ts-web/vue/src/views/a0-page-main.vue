@@ -62,11 +62,12 @@
     </ol>
 
   </main> -->
+  <a href="#" class="btn btn-outline-light my-2 dropdown-toggle text-primary" @click="toggleOpen">
+    外部点击
+  </a>
   <div class="dropdown" ref="dropdownRef" v-click-outside:[dropdownRef]="handleClickOutside">
-    <a href="#" class="btn btn-outline-light my-2 dropdown-toggle text-primary" @click.prevent="toggleOpen">
-      外部点击
-    </a>
-    <ul class="dropdown-menu" v-if="isOpen" style="display:block">
+    <!-- TESTHOME -->
+    <ul class="dropdown-menu" v-if="isOpen" style="display: block">
       <slot name="dropdown"></slot>
     </ul>
   </div>
@@ -76,13 +77,18 @@
 import { defineComponent, ref, watch } from 'vue'
 // export default defineComponent({
 //   setup() {
-    const isOpen = ref(false)
-    const dropdownRef = ref<null | HTMLElement>(null)
-    const toggleOpen = () => {
-      isOpen.value = !isOpen.value
-    }
-    const handleClickOutside = () => isOpen.value && (isOpen.value = false)
+const isOpen = ref(false)
+const dropdownRef = ref<null | HTMLElement>(null)
 
+let canClickOut: Boolean = true
+const toggleOpen = () => {
+  isOpen.value = !isOpen.value
+  canClickOut = false
+  setTimeout(() => {
+    canClickOut = true
+  }, 50)
+}
+const handleClickOutside = () => canClickOut && isOpen.value && (isOpen.value = false)
 
 //     return {
 //       isOpen,

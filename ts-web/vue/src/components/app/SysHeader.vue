@@ -1,14 +1,6 @@
 <template>
-  <!-- <header class="h-12 bg-gray-700 text-white">
-        <RouterLink class="inline" to="/">主页</RouterLink>
-        <RouterLink class="inline" to="/user">用户</RouterLink>
-        <button @click="show = !show"> {{ loginBtn }} </button>
-        <async-login-popup v-if="show" />
-
-    </header> -->
-
   <header class="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900">
-    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+    <div class="flex flex-wrap justify-between items-center mx-auto  p-4">
       <a href="todo" class="flex items-center">
         <img src="@/assets/star.svg" class="h-8 mr-3" alt="Flowbite Logo" />
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
@@ -52,16 +44,17 @@
               >主页</RouterLink
             >
           </li>
-          <!-- fun0 -->
+    
+          <!-- fun1 -->
           <li>
             <button
-              id="mega-menu-icons-dropdown-button"
-              data-dropdown-toggle="mega-menu-icons-dropdown"
+              @click="showFun = !showFun"
+              id="mega-menu-full-cta-image-button"
+              data-collapse-toggle="mega-menu-full-image-dropdown"
               class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
             >
-              Fun0
+              Fun1
               <svg
-                aria-hidden="true"
                 class="w-5 h-5 ml-1"
                 fill="currentColor"
                 viewBox="0 0 20 20"
@@ -74,11 +67,10 @@
                 ></path>
               </svg>
             </button>
-       
+            <MinPopover v-model="showFun">
               <ShowHidden>
-                <MinPopover id="test" v-model="showFun">
                 <div
-                  v-if="showFun"
+                  v-show="showFun"
                   id="mega-menu-icons-dropdown"
                   class="absolute z-10 grid w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700"
                 >
@@ -330,32 +322,8 @@
                     </ul>
                   </div>
                 </div>
-              </MinPopover>
               </ShowHidden>
-
-          </li>
-          <!-- fun1 -->
-          <li>
-            <button
-              @click="showFun = !showFun"
-              id="mega-menu-full-cta-image-button"
-              data-collapse-toggle="mega-menu-full-image-dropdown"
-              class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
-            >
-              Fun1
-              <svg
-                class="w-5 h-5 ml-1"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
+            </MinPopover>
           </li>
           <li>
             <a
@@ -368,14 +336,7 @@
             <a
               href="#"
               class="block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
-              >Resources</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
-              >Contact</a
+              >_dev</a
             >
           </li>
         </ul>

@@ -1,5 +1,5 @@
 <template>
-  <!-- <main class=" bg-white dark:bg-gray-900 m-5">
+  <main class=" bg-white dark:bg-gray-900 m-5">
     <ol class="relative border-l border-gray-200 dark:border-gray-700">
       <li class="mb-10 ml-6">
         <span
@@ -61,54 +61,12 @@
       </li>
     </ol>
 
-  </main> -->
-  <a href="#" class="btn btn-outline-light my-2 dropdown-toggle text-primary" @click="toggleOpen">
-    外部点击
-  </a>
-  <div class="dropdown" ref="dropdownRef" v-click-outside:[dropdownRef]="handleClickOutside">
-    <!-- TESTHOME -->
-    <ul class="dropdown-menu" v-if="isOpen" style="display: block">
-      <slot name="dropdown"></slot>
-    </ul>
-  </div>
+  </main>
+
 </template>
 
 <script setup lang="ts">
 import { defineComponent, ref, watch } from 'vue'
-// export default defineComponent({
-//   setup() {
-const isOpen = ref(false)
-const dropdownRef = ref<null | HTMLElement>(null)
-
-let canClickOut: Boolean = true
-const toggleOpen = () => {
-  isOpen.value = !isOpen.value
-  canClickOut = false
-  setTimeout(() => {
-    canClickOut = true
-  }, 50)
-}
-const handleClickOutside = () => canClickOut && isOpen.value && (isOpen.value = false)
-
-//     return {
-//       isOpen,
-//       toggleOpen,
-//       dropdownRef,
-//       handleClickOutside
-//     }
-//   }
-// })
 </script>
 <style scoped>
-.dropdown {
-  position: absolute;
-  left: 300px;
-}
-
-.dropdown-menu {
-  min-width: unset;
-  width: 100px;
-  height: 100px;
-  background-color: aqua;
-}
 </style>

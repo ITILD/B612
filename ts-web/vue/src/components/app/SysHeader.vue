@@ -9,6 +9,7 @@
       </router-link>
       <!-- 小屏幕设备 下拉列表 -->
       <button
+      @click="isMenuOpen = !isMenuOpen"
         id="mega-menu-full-image-button"
         data-collapse-toggle="mega-menu-full-image"
         type="button"
@@ -31,9 +32,12 @@
           ></path>
         </svg>
       </button>
+      <MinPopover v-model="isMenuOpen">
+      <ShowHidden>
       <div
+      v-show="isMenuOpen" 
         id="mega-menu-full-image"
-        class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+        class="items-center justify-between  w-full md:flex md:w-auto md:order-1"
       >
         <ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
           <li>
@@ -340,6 +344,8 @@
           </li>
         </ul>
       </div>
+    </ShowHidden>
+      </MinPopover>
     </div>
   </header>
 </template>
@@ -348,11 +354,13 @@
 <script setup lang="ts">
 import { defineAsyncComponent, ref } from 'vue'
 import ShowHidden from '../common/minUi/animation/ShowHidden.vue'
-// import LppButton from '../common/minUi/button/LppButton.vue'
 import MinPopover from '../common/minUi/button/MinPopover.vue'
-const count = ref<number>(0)
-// 异步加载登录框
+
+// 动态  md 监测显隐
+const mdBool = window.$MS.md 
+const isMenuOpen = ref(mdBool)
 const showFun = ref(false)
+
 // const show = ref(false)
 // const AsyncLoginPopup = defineAsyncComponent(() => import('./popup/AsyncLoginPopup.vue'))
 // const loginBtn = ref('login')

@@ -1,16 +1,13 @@
 // 统一处理media
 declare global {
-    interface Window {
-      // mySetting 私有设置
-      $MS: { md: Boolean }
-    }
+  interface Window {
+    // mySetting 私有设置
+    $MS: { md: Number }
   }
-  
-  function mainSetting() {
-    window.$MS = { md: window.innerWidth >= 768 }
-  }
-  
+}
 
+function mainSetting() {
+  window.$MS = { md:768 }
+}
 
-
-  export {mainSetting}
+export { mainSetting }

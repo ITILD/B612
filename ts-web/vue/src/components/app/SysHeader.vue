@@ -79,8 +79,9 @@
                       class="absolute z-10 grid grid-cols-3 rounded-lg p-2 w-11/12 text-xl bg-white border border-gray-100 dark:border-gray-700 dark:bg-gray-700 text-gray-900 md:pb-4 dark:text-white md:w-96 md:right-48 md:text-sm"
                     >
                       <RouterLink 
-                        to="/"
-                        class="flex items-center p-2 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
+                        :to=fun1Router.url
+                        class="flex items-center p-2 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group" v-for="fun1Router in routerThisArr.fun1"
+                        :key="fun1Router.url"
                       >
                         <svg
                           class="w-4 h-4 mr-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
@@ -96,7 +97,7 @@
                             clip-rule="evenodd"
                           ></path>
                         </svg>
-                        About Us
+                        {{ fun1Router.name }}
                       </RouterLink>
                     </div>
                   </ShowHidden>
@@ -134,12 +135,12 @@ const isMd = ref(window.innerWidth > window.$MS.md)
 window.onresize = () => (isMd.value = window.innerWidth > window.$MS.md)
 const showFun1 = ref(false)
 
-const routerThis = reactive({
+const routerThisArr = reactive({
   fun1:[
     {
       ion:'',
-      url:'',
-      name:'',
+      url:'/',
+      name:'first',
     }
   ]
 })

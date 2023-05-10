@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, defineProps, watch } from 'vue'
+import { ref, watch } from 'vue'
 /**
  * 外部按钮优先   内部监听只负责监听非外部按钮事件且在当前组件区域外
  * 改变外部状态，点击外部自动关闭

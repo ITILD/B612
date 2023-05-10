@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import { defineProps,withDefaults } from 'vue'
 	
 export type Theme = 'vs' | 'hc-black' | 'vs-dark'
 export type FoldingStrategy = 'auto' | 'indentation'
@@ -18,59 +18,45 @@ export interface Options {
   scrollBeyondLastLine: boolean // 取消代码后面一大段空白
   overviewRulerBorder: boolean // 不要滚动条的边框
 }
-
-export const editorProps = {
-  modelValue: {
-    type: String as PropType<string>,
-    default: null,
-  },
-  hightChange: {
-    type: Boolean,
-    default: false,
-  },
-  width: {
-    type: [String, Number] as PropType<string | number>,
-    default: '100%',
-  },
-  height: {
-    type: [String, Number] as PropType<string | number>,
-    default: '100%',
-  },
-  language: {
-    type: String as PropType<string>,
-    default: 'javascript',
-  },
-  readOnly: {
-    type: Boolean,
-    default: false,
-  },
-  theme: {
-    type: String as PropType<Theme>,
-    validator(value: string): boolean {
-      return ['vs', 'hc-black', 'vs-dark', 'hc-light'].includes(value)
-    },
-    default: 'vs',
-  },
-  options: {
-    type: Object as PropType<Options>,
-    default() {
-      return {
-        automaticLayout: true,
-        // foldingStrategy: 'indentation',
-        foldingStrategy: 'indentation', // 折叠方式  auto | indentation
-        // renderLineHighlight: 'all',
-        renderLineHighlight: 'all' || 'line' || 'none' || 'gutter', // 行亮
-        selectOnLineNumbers: true, // 显示行号
-        minimap: {
-          // 关闭小地图
-          enabled: false,
-        },
-        placeholder: 'ss',
-        // readOnly: false, // 只读
-        fontSize: 16, // 字体大小
-        scrollBeyondLastLine: false, // 取消代码后面一大段空白
-        overviewRulerBorder: false, // 不要滚动条的边框
-      }
-    },
-  },
+type props = {
+  // 类型
+  modelValue: string;
+  hightChange:boolean;
+  width: string| number;
+  height: string| number;
+  language: string;
+  readOnly: boolean;
+  theme: string;
+  options: Object;
+  
 }
+
+export const props = withDefaults(defineProps<props>(), {
+  modelValue:'',
+  hightChange:false,
+  width:'100%', 
+  height: '100%', 
+  language:'javascript', 
+  readOnly:false, 
+  theme: 'vs', 
+  options: () => {
+    return {
+      automaticLayout: true,
+      // foldingStrategy: 'indentation',
+      foldingStrategy: 'indentation', // 折叠方式  auto | indentation
+      // renderLineHighlight: 'all',
+      renderLineHighlight: 'all' || 'line' || 'none' || 'gutter', // 行亮
+      selectOnLineNumbers: true, // 显示行号
+      minimap: {
+        // 关闭小地图
+        enabled: false,
+      },
+      placeholder: 'ss',
+      // readOnly: false, // 只读
+      fontSize: 16, // 字体大小
+      scrollBeyondLastLine: false, // 取消代码后面一大段空白
+      overviewRulerBorder: false, // 不要滚动条的边框
+    }
+  }, 
+
+})

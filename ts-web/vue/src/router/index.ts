@@ -4,6 +4,8 @@ import MainPage from '../views/index-page.vue'
 // const modules = AutoViewAndLink.routes()
 const routes = [
   { path: '/', component: MainPage },
+  // blob
+  { path: '/blob', component: () => import('../views/blob/index-page.vue') },
   // 开发测试
   { path: '/_dev', component: () => import('../views/_dev/index-page.vue') },
   { path: '/_dev/map2d', component: () => import('../views/_dev/map/map2d-page.vue') },

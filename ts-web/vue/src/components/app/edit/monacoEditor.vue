@@ -6,8 +6,9 @@ import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import * as monaco from 'monaco-editor'
 import { language as sqlLanguage } from 'monaco-editor/esm/vs/basic-languages/sql/sql.js'
 import { language as yamlLanguage } from 'monaco-editor/esm/vs/basic-languages/yaml/yaml.js'
+import { language as javascriptLanguage } from 'monaco-editor/esm/vs/basic-languages/javascript/javascript.js'
 import 'monaco-editor/esm/vs/basic-languages/sql/sql.contribution'
-	
+
 export type Theme = 'vs' | 'hc-black' | 'vs-dark'
 export type FoldingStrategy = 'auto' | 'indentation'
 export type RenderLineHighlight = 'all' | 'line' | 'none' | 'gutter'
@@ -16,7 +17,7 @@ export interface Options {
   foldingStrategy: FoldingStrategy // 折叠方式  auto | indentation
   renderLineHighlight: RenderLineHighlight // 行亮
   selectOnLineNumbers: boolean // 显示行号
-  placeholder:string
+  placeholder: string
   minimap: {
     // 关闭小地图
     enabled: boolean
@@ -26,26 +27,25 @@ export interface Options {
   scrollBeyondLastLine: boolean // 取消代码后面一大段空白
   overviewRulerBorder: boolean // 不要滚动条的边框
 }
-type props = {
+type Props = {
   // 类型
-  modelValue: string;
-  hightChange:boolean;
-  width: string| number;
-  height: string| number;
-  language: string;
-  readOnly: boolean;
-  theme: string;
-  options: Object;
-  
+  modelValue?: string
+  hightChange: boolean
+  width: string | number
+  height: string | number
+  language: string
+  readOnly?: boolean
+  theme?: string
+  options?: Object
 }
-const props = withDefaults(defineProps<props>(), {
-  modelValue:'',
-  hightChange:false,
-  width:'100%', 
-  height: '100%', 
-  language:'javascript', 
-  readOnly:false, 
-  theme: 'vs', 
+const props = withDefaults(defineProps<Props>(), {
+  modelValue: '',
+  hightChange: false,
+  width: '100%',
+  height: '100%',
+  language: 'javascript',
+  readOnly: false,
+  theme: 'vs',
   options: () => {
     return {
       automaticLayout: true,
@@ -56,22 +56,23 @@ const props = withDefaults(defineProps<props>(), {
       selectOnLineNumbers: true, // 显示行号
       minimap: {
         // 关闭小地图
-        enabled: false,
+        enabled: !false
       },
       placeholder: 'ss',
       // readOnly: false, // 只读
       fontSize: 16, // 字体大小
       scrollBeyondLastLine: false, // 取消代码后面一大段空白
-      overviewRulerBorder: false, // 不要滚动条的边框
+      overviewRulerBorder: false // 不要滚动条的边框
     }
-  }, 
-
+  }
 })
 
 const emit = defineEmits(['update:modelValue', 'change', 'editor-mounted'])
 
 self.MonacoEnvironment = {
   getWorker: (_: string, label: string) => {
+    // eslint-disable-next-line no-debugger
+    debugger
     const getWorkerModule = (moduleUrl: string, label: string) =>
       new Worker((self as any).MonacoEnvironment.getWorkerUrl(moduleUrl), {
         name: label,
@@ -91,10 +92,7 @@ self.MonacoEnvironment = {
         return getWorkerModule('/monaco-editor/esm/vs/language/html/html.worker?worker', label)
       case 'typescript':
       case 'javascript':
-        return getWorkerModule(
-          '/monaco-editor/esm/vs/language/typescript/ts.worker?worker',
-          label
-        )
+        return getWorkerModule('/monaco-editor/esm/vs/language/typescript/ts.worker?worker', label)
       default:
         return getWorkerModule('/monaco-editor/esm/vs/editor/editor.worker?worker', label)
     }
@@ -112,6 +110,28 @@ const init = () => {
     target: monaco.languages.typescript.ScriptTarget.ES2020,
     allowNonTsExtensions: true
   })
+  monaco.languages.registerCompletionItemProvider("javascript", {
+    provideCompletionItems() {
+      const suggestions: any = []
+      javascriptLanguage.keywords.forEach((item: any) => {
+        suggestions.push({
+          label: item,
+          kind: monaco.languages.CompletionItemKind.Keyword,
+          insertText: item
+        })
+      })
+        suggestions.push({
+          label:'vue' ,
+          kind: monaco.languages.CompletionItemKind.Operator,
+          insertText: 'vue模板'
+        })
+
+      return {
+        // 最后要返回一个数组
+        suggestions
+      }
+    }
+  });
   monaco.languages.registerCompletionItemProvider('sql', {
     provideCompletionItems() {
       const suggestions: any = []

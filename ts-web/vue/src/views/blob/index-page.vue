@@ -6,7 +6,7 @@
 
     <!-- 加载中状态 -->
     <template #fallback>
-      正在加载...
+      <WaitAnimate></WaitAnimate>
     </template>
   </Suspense>
 
@@ -14,7 +14,9 @@
 </template>
 
 <script setup lang="ts">
+import WaitAnimate from '@/components/app/sampleUtils/state/WaitAnimate.vue';
 import { defineAsyncComponent, ref } from 'vue'
+
 const monacoEditor = defineAsyncComponent(() => import('@/components/app/edit/monacoEditor.vue'))
 // const monacoEditor = defineAsyncComponent(() => import('@/components/app/edit/monacoEditorDefaut.vue'))
 const value = ref('const a = 0')

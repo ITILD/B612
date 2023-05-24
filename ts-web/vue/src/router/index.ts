@@ -1,35 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MainPage from '../views/index-page.vue'
-// import AutoViewAndLink from './AutoViewAndLink'
-// const modules = AutoViewAndLink.routes()
+import { routerDev } from './_dev'
 const routes = [
   { path: '/', component: MainPage },
   // blob
   { path: '/blob', component: () => import('../views/blob/index-page.vue') },
   // 开发测试
-  { path: '/_dev', component: () => import('../views/_dev/index-page.vue') },
-  { path: '/_dev/map2d', component: () => import('../views/_dev/map/map2d-page.vue') },
-  { path: '/_dev/map3d', component: () => import('../views/_dev/map/map3d-page.vue') },
-  { path: '/_dev/map-home', component: () => import('../views/_dev/map/map-home-page.vue') },
-
-  // { path: '/info', name: 'home1', component: () => import('../views/info/list-i-p.vue') },
-  // {
-  //   path: '/user',
-  //   name: 'user',
-  //   component: modules['../views/user/a0-layerout.vue'],
-  //   children: [
-  //     {
-  //       path: '',
-  //       name: 'Login',
-  //       component: () => import('../views/user/a0-page-login.vue')
-  //     },
-  //     {
-  //       path: 'SignUp',
-  //       name: 'SignUp',
-  //       component: () => import('../views/user/SignUpView.vue')
-  //     }
-  //   ]
-  // }
+  ...routerDev
 ]
 
 // 生成路由

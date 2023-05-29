@@ -48,13 +48,21 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-
+/**
+ * 大类一块   块内每行四分小块  没有就换行    小块只有一个则单占    例子可以放第一大块二次展示
+ */
 const routerThisArr = reactive({
   root: [
     {
       ion: '',
       url: '/',
-      name: 'first'
+      name: '例子',
+      child:[
+        // 0
+        // 1
+        // 2
+        // 3
+      ]
     },
     {
       ion: '',

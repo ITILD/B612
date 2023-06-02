@@ -1,7 +1,7 @@
 <template>
   <div class="this-page">
     <!-- 地图-->
-    <div id="简易2d地图" class="map__x"></div>
+    <div id="mapThis" class="mapThis"></div>
     <!-- 配置 -->
     <div class="options">
       <h2>Options:</h2>
@@ -40,6 +40,7 @@ let snapi: any
 // vue
 onMounted(() => {
   initMap()
+  window.$ObjLargeTemp.set('_map2d', _map2d)
 })
 onBeforeUnmount(() => {
   _map2d && _map2d.dispose()
@@ -51,7 +52,7 @@ const initMap = () => {
   const degreePosition = [121.5, 38.85, 13]
   // 地图实例
   _map2d = new olMap({
-    target: '简易2d地图', // 对应页面里 id 为 map 的元素
+    target: 'mapThis', // 对应页面里 id 为 map 的元素
     layers: [
       // 图层
       new Tile({
@@ -67,7 +68,7 @@ const initMap = () => {
       zoom: degreePosition[2] // 地图缩放级别（打开页面时默认级别）
     })
   })
-  window.$ObjLargeTemp.set('_map2d', _map2d)
+
   mapThen()
 }
 const mapThen = () => {
@@ -111,7 +112,7 @@ const setInitial = () => {
   width: 100%;
   height: 100%;
 }
-.map__x {
+.mapThis {
   width: 100%;
   height: 100%;
   border: 1px solid #eee;

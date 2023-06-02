@@ -36,8 +36,12 @@ const routerAll = reactive({
       child: []
     },
     {
-      name: 'cad/gis/gl',
+      name: 'Graphics',
       child: [
+        {
+          img: '',
+          name: 'gl'
+        },
         {
           img: '',
           name: 'gis'
@@ -66,21 +70,40 @@ const routerAll = reactive({
       child: []
     },
     {
-      name: 'cad/gis/gl',
+      name: 'Graphics',
       child: [
+        {
+          img: '',
+          name: 'gl',
+          child: [
+            {
+              name: '2d地图初始',
+              url: '/_dev/gl/map2d-start'
+            },
+            {
+              name: '3d地图初始(cesium)',
+              url: '/_dev/gl/map3d-start'
+            },
+            {
+              name: '3d场景初始(babylon)',
+              url: '/_dev/gl/babylon-start'
+            }
+          ]
+        },
         {
           // L2
           img: '',
           name: 'gis',
           child: [
             {
-              name: '2d地图初始',
-              url: '/_dev/map2d-start'
+              name: '2d地图初始(带ol-ext插件)',
+              url: '/_dev/gis/map2d-ol-ext-start'
             },
             {
-              name: '2d地图初始(带ol-ext插件)',
-              url: '/_dev/map2d-ol-ext-start'
-            },
+              name: '3d地图初始(cesium google 测试)',
+              url: '/_dev/gis/map3d-testgoogle',
+              type: 'test'
+            }
           ]
         },
         {

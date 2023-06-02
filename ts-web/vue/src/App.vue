@@ -20,8 +20,6 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  /* margin: 0;
-  padding: 0; */
   background-color: rgb(218, 218, 218);
   /* 滚动条覆盖不挤压 */
 }
@@ -29,6 +27,7 @@ body {
 #app {
   min-height: 100%;
   display: grid;
+  /* 中间自适应 */
   grid-template-rows: auto minmax(0, 1fr) auto;
   background-color: rgb(218, 218, 218);
 }
@@ -43,6 +42,7 @@ body {
 }
 
 /* 滚动条整体 高度写不写，都不影响，因为会根据内容的长度自动计算*/
+
 .scroll::-webkit-scrollbar {
   width: 4px;
 }
@@ -57,7 +57,20 @@ body {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
 }
-.scroll:hover::-webkit-scrollbar-thumb{
+
+/* 内容hover */
+.scroll:hover::-webkit-scrollbar {
+  width: 8px;
+}
+.scroll:hover::-webkit-scrollbar-thumb {
+  background: #4cdbffb0;
+}
+
+/* 滚动条hover */
+.scroll::-webkit-scrollbar:hover {
+  width: 12px;
+}
+.scroll::-webkit-scrollbar-thumb:hover {
   background: #4cdbffb0;
 }
 /* 滚动条轨道 */

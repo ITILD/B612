@@ -40,13 +40,14 @@ const initMap = () => {
     sceneMode: 3, // 初始场景模式 1 2D模式 2 2D循环模式 3 3D模式  this.Cesium.SceneMode
 
     // 地图影像这里选择的是天地图
+    // imageryProvider: false,
     // imageryProvider: new Cesium.UrlTemplateImageryProvider({
     //   url: `https://t4.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}&tk=${TDTTK}`,
-    //   maximumLevel: 18,
+    //   maximumLevel: 18
     // }),
     selectionIndicator: false, // 关闭绿色选择框，
     // requestRenderMode: false, // 启用请求渲染模式，不需要渲染，节约资源吧
-    imageryProvider: false,
+
     // baseLayerPicker: false,
     requestRenderMode: true
   })
@@ -55,27 +56,21 @@ const initMap = () => {
   creditContainer.style.display = 'none'
   viewer.scene.globe.depthTestAgainstTerrain = true
 
-  addGoogle()
-}
-// AIzaSyBqCv5lozjjhtIQ_pZuj2obyAL9bTJdY28
-const addGoogle = async () => {
-  viewer.scene.globe.show = false
-  const tileset = await Cesium.Cesium3DTileset.fromUrl(
-    'https://tile.googleapis.com/v1/3dtiles/root.json?key=AIzaSyBqCv5lozjjhtIQ_pZuj2obyAL9bTJdY28'
+  //osm
+
+  // 移除默认的影像图层
+  const imageryLayers = viewer.imageryLayers
+  imageryLayers.remove(imageryLayers.get(0))
+
+  // 初始化OSM影像图层数据源
+  viewer.imageryLayers.addImageryProvider(
+    new Cesium.UrlTemplateImageryProvider({
+      url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+      // url: 'https://tile-{s}.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+      //  url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
+      subdomains: ['a', 'b', 'c', 'd']
+    })
   )
-  viewer.scene.primitives.add(tileset)
-
-  // Point the camera at the Googleplex
-  viewer.scene.camera.setView({
-    destination: new Cesium.Cartesian3(-2693797.551060477, -4297135.517094725, 3854700.7470414364),
-    orientation: new Cesium.HeadingPitchRoll(
-      4.6550106925119925,
-      -0.2863894863138836,
-      1.3561760425773173e-7
-    )
-  })
-
-
 }
 </script>
 

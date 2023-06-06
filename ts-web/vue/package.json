@@ -22,6 +22,8 @@
   "dependencies": {
     "@babylonjs/core": "^6.6.0",
     "@tauri-apps/api": "^1.2.0",
+    "@types/marked": "^5.0.0",
+    "marked": "^5.0.4",
     "monaco-editor": "^0.38.0",
     "ol": "^7.3.0",
     "ol-ext": "^4.0.8",

@@ -7,6 +7,7 @@ specifiers:
   '@tauri-apps/api': ^1.2.0
   '@tauri-apps/cli': ^1.2.2
   '@types/jsdom': ^21.1.0
+  '@types/marked': ^5.0.0
   '@types/node': ^18.14.2
   '@types/ol-ext': npm:@siedlerchr/types-ol-ext@^3.2.0
   '@vitejs/plugin-vue': ^4.0.0
@@ -19,6 +20,7 @@ specifiers:
   eslint: ^8.34.0
   eslint-plugin-vue: ^9.9.0
   jsdom: ^21.1.0
+  marked: ^5.0.4
   monaco-editor: ^0.38.0
   npm-run-all: ^4.1.5
   ol: ^7.3.0
@@ -39,6 +41,8 @@ specifiers:
 dependencies:
   '@babylonjs/core': registry.npmmirror.com/@babylonjs/core/6.6.0
   '@tauri-apps/api': registry.npmmirror.com/@tauri-apps/api/1.2.0
+  '@types/marked': registry.npmmirror.com/@types/marked/5.0.0
+  marked: registry.npmmirror.com/marked/5.0.4
   monaco-editor: registry.npmmirror.com/monaco-editor/0.38.0
   ol: registry.npmmirror.com/ol/7.3.0
   ol-ext: registry.npmmirror.com/ol-ext/4.0.8_ol@7.3.0
@@ -842,6 +846,12 @@ packages:
     name: '@types/json-schema'
     version: 7.0.11
     dev: true
+
+  registry.npmmirror.com/@types/marked/5.0.0:
+    resolution: {integrity: sha512-YcZe50jhltsCq7rc9MNZC/4QB/OnA2Pd6hrOSTOFajtabN+38slqgDDCeE/0F83SjkKBQcsZUj7VLWR0H5cKRA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/marked/-/marked-5.0.0.tgz}
+    name: '@types/marked'
+    version: 5.0.0
+    dev: false
 
   registry.npmmirror.com/@types/node/18.15.3:
     resolution: {integrity: sha512-p6ua9zBxz5otCmbpb5D3U4B5Nanw6Pk3PPyX05xnxbB/fRv71N7CPmORg7uAD5P70T0xmx1pzAx/FUfa5X+3cw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-18.15.3.tgz}
@@ -3455,6 +3465,14 @@ packages:
     resolution: {integrity: sha512-f+NBjJJY4T3dHtlEz1wCG7YFlkODEjFIYlxDdLIDMNpkSksqTt+l/d4rjuwItxuzkuMFvPyrjzV2lxRM4ePcIA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mapbox-to-css-font/-/mapbox-to-css-font-2.4.2.tgz}
     name: mapbox-to-css-font
     version: 2.4.2
+    dev: false
+
+  registry.npmmirror.com/marked/5.0.4:
+    resolution: {integrity: sha512-r0W8/DK56fAkV0qfUCO9cEt/VlFWUzoJOqEigvijmsVkTuPOHckh7ZutNJepRO1AxHhK96/9txonHg4bWd/aLA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/marked/-/marked-5.0.4.tgz}
+    name: marked
+    version: 5.0.4
+    engines: {node: '>= 18'}
+    hasBin: true
     dev: false
 
   registry.npmmirror.com/memorystream/0.3.1:

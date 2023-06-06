@@ -33,7 +33,7 @@ const initMap = () => {
       // 图层
       new Tile({
         // 使用瓦片渲染方法
-        source: new OSM() // 图层数据源
+        source: new OSM({attributions:''}) // 图层数据源
       })
     ],
     view: new View({

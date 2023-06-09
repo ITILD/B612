@@ -26,7 +26,7 @@ import { Tile } from 'ol/layer' // 瓦片渲染方法
 import { OSM } from 'ol/source'
 // 绘制
 import { Draw, Modify } from 'ol/interaction'
-import { transform } from 'ol/proj'
+import { fromLonLat, transform } from 'ol/proj'
 
 import VectorImage from 'ol/layer/VectorImage'
 import VectorSource from 'ol/source/Vector'
@@ -62,8 +62,10 @@ const initMap = () => {
     ],
     view: new View({
       // 地图视图
-      projection: 'EPSG:4326', // 坐标系，有EPSG:4326和EPSG:3857
-      center: degreePosition.slice(0, 2), // 大连坐标
+      // projection: 'EPSG:4326', // 坐标系，有EPSG:4326和EPSG:3857
+      // center: degreePosition.slice(0, 2), // 大连坐标
+      projection: 'EPSG:3857', // 坐标系，有EPSG:4326和EPSG:3857
+      center: fromLonLat(degreePosition.slice(0, 2)), // 大连坐标
       // minZoom: 10, // 地图缩放最小级别
       zoom: degreePosition[2] // 地图缩放级别（打开页面时默认级别）
     })
@@ -97,8 +99,8 @@ const mapThen = () => {
 
 // New guide on meridian (default Greenwich)
 const addMeridian = (x: any) => {
-  let p1 = transform([x || 0, 1], 'EPSG:4326', _map2d.getView().getProjection())
-  let p2 = transform([x || 0, -1], 'EPSG:4326', _map2d.getView().getProjection())
+  let p1 = transform([x || 0, 1], 'EPSG:3857', _map2d.getView().getProjection())
+  let p2 = transform([x || 0, -1], 'EPSG:3857', _map2d.getView().getProjection())
   snapi.addGuide([p1, p2])
 }
 // Switch initial condition

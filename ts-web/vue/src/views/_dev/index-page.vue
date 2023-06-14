@@ -6,7 +6,7 @@
         <!-- 1级大类 -->
         <h1 class="text-xl bg-blue-700">{{ L1.name }}</h1>
         <!-- 2级分类 -->
-        <div v-for="L2 in L1.child" :key="L2.name">
+        <div v-for="L2 in L1.child" :key="L2.name" class="max-w-sm h-96  border border-gray-200">
           <h2 class="text-lg bg-blue-300 hover:invert">{{ L2.name }}</h2>
         </div>
       </div>

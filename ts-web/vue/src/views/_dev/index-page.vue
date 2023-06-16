@@ -126,7 +126,30 @@ const routerAll = reactive({
     },
     {
       name: 'fun'
-    }
+    },
+    // 不知道什么分类
+    {
+      name: 'waaa',
+      child: [
+        {
+          img: '',
+          name: 'beauty',
+          child: [
+            {
+              name: '网页底板设计基础',
+              url: '/_dev/beauty/web-design-base'
+            },
+          ]
+        },
+        {
+          // L2
+          img: '',
+          name: 'amazing',
+          child: [
+          ]
+        }
+      ]
+    },
   ]
 })
 </script>

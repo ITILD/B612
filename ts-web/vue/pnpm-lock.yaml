@@ -29,6 +29,7 @@ specifiers:
   postcss: ^8.4.21
   prettier: ^2.8.4
   rollup: ^2.25.0
+  sass: ^1.63.4
   tailwindcss: ^3.2.7
   typescript: ~4.8.4
   vite: ^4.1.4
@@ -71,11 +72,12 @@ devDependencies:
   postcss: registry.npmmirror.com/postcss/8.4.21
   prettier: registry.npmmirror.com/prettier/2.8.4
   rollup: registry.npmmirror.com/rollup/2.79.1
+  sass: registry.npmmirror.com/sass/1.63.4
   tailwindcss: registry.npmmirror.com/tailwindcss/3.2.7_postcss@8.4.21
   typescript: registry.npmmirror.com/typescript/4.8.4
-  vite: registry.npmmirror.com/vite/4.1.4_@types+node@18.15.3
+  vite: registry.npmmirror.com/vite/4.1.4_ssb7q7cm6axxaktzugbzw3b5e4
   vite-plugin-cesium: registry.npmmirror.com/vite-plugin-cesium/1.2.22_zus3dnirodr2xetjtvomh4cyiy
-  vitest: registry.npmmirror.com/vitest/0.29.3_jsdom@21.1.1
+  vitest: registry.npmmirror.com/vitest/0.29.3_jsdom@21.1.1+sass@1.63.4
   vue-tsc: registry.npmmirror.com/vue-tsc/1.2.0_typescript@4.8.4
 
 packages:
@@ -1039,7 +1041,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: registry.npmmirror.com/vite/4.1.4_@types+node@18.15.3
+      vite: registry.npmmirror.com/vite/4.1.4_ssb7q7cm6axxaktzugbzw3b5e4
       vue: registry.npmmirror.com/vue/3.2.47
     dev: true
 
@@ -2951,6 +2953,12 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
+  registry.npmmirror.com/immutable/4.3.0:
+    resolution: {integrity: sha512-0AOCmOip+xgJwEVTQj1EfiDDOkPmuyllDuTuEX+DDXUgapLAsBIfkg3sxCYyCEA8mQqZrrxPUGjcOQ2JS3WLkg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/immutable/-/immutable-4.3.0.tgz}
+    name: immutable
+    version: 4.3.0
+    dev: true
+
   registry.npmmirror.com/import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/import-fresh/-/import-fresh-3.3.0.tgz}
     name: import-fresh
@@ -4463,6 +4471,18 @@ packages:
     version: 2.1.2
     dev: true
 
+  registry.npmmirror.com/sass/1.63.4:
+    resolution: {integrity: sha512-Sx/+weUmK+oiIlI+9sdD0wZHsqpbgQg8wSwSnGBjwb5GwqFhYNwwnI+UWZtLjKvKyFlKkatRK235qQ3mokyPoQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/sass/-/sass-1.63.4.tgz}
+    name: sass
+    version: 1.63.4
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: registry.npmmirror.com/chokidar/3.5.3
+      immutable: registry.npmmirror.com/immutable/4.3.0
+      source-map-js: registry.npmmirror.com/source-map-js/1.0.2
+    dev: true
+
   registry.npmmirror.com/saxes/6.0.0:
     resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/saxes/-/saxes-6.0.0.tgz}
     name: saxes
@@ -5130,7 +5150,7 @@ packages:
       spdx-expression-parse: registry.npmmirror.com/spdx-expression-parse/3.0.1
     dev: true
 
-  registry.npmmirror.com/vite-node/0.29.3_@types+node@18.15.3:
+  registry.npmmirror.com/vite-node/0.29.3_ssb7q7cm6axxaktzugbzw3b5e4:
     resolution: {integrity: sha512-QYzYSA4Yt2IiduEjYbccfZQfxKp+T1Do8/HEpSX/G5WIECTFKJADwLs9c94aQH4o0A+UtCKU61lj1m5KvbxxQA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite-node/-/vite-node-0.29.3.tgz}
     id: registry.npmmirror.com/vite-node/0.29.3
     name: vite-node
@@ -5143,7 +5163,7 @@ packages:
       mlly: registry.npmmirror.com/mlly/1.2.0
       pathe: registry.npmmirror.com/pathe/1.1.0
       picocolors: registry.npmmirror.com/picocolors/1.0.0
-      vite: registry.npmmirror.com/vite/4.1.4_@types+node@18.15.3
+      vite: registry.npmmirror.com/vite/4.1.4_ssb7q7cm6axxaktzugbzw3b5e4
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -5167,13 +5187,13 @@ packages:
       fs-extra: registry.npmmirror.com/fs-extra/9.1.0
       rollup-plugin-external-globals: registry.npmmirror.com/rollup-plugin-external-globals/0.6.1_rollup@2.79.1
       serve-static: registry.npmmirror.com/serve-static/1.15.0
-      vite: registry.npmmirror.com/vite/4.1.4_@types+node@18.15.3
+      vite: registry.npmmirror.com/vite/4.1.4_ssb7q7cm6axxaktzugbzw3b5e4
     transitivePeerDependencies:
       - rollup
       - supports-color
     dev: true
 
-  registry.npmmirror.com/vite/4.1.4_@types+node@18.15.3:
+  registry.npmmirror.com/vite/4.1.4_ssb7q7cm6axxaktzugbzw3b5e4:
     resolution: {integrity: sha512-3knk/HsbSTKEin43zHu7jTwYWv81f8kgAL99G5NWBcA1LKvtvcVAC4JjBH1arBunO9kQka+1oGbrMKOjk4ZrBg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite/-/vite-4.1.4.tgz}
     id: registry.npmmirror.com/vite/4.1.4
     name: vite
@@ -5206,11 +5226,12 @@ packages:
       postcss: registry.npmmirror.com/postcss/8.4.21
       resolve: registry.npmmirror.com/resolve/1.22.1
       rollup: registry.npmmirror.com/rollup/3.19.1
+      sass: registry.npmmirror.com/sass/1.63.4
     optionalDependencies:
       fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: true
 
-  registry.npmmirror.com/vitest/0.29.3_jsdom@21.1.1:
+  registry.npmmirror.com/vitest/0.29.3_jsdom@21.1.1+sass@1.63.4:
     resolution: {integrity: sha512-muMsbXnZsrzDGiyqf/09BKQsGeUxxlyLeLK/sFFM4EXdURPQRv8y7dco32DXaRORYP0bvyN19C835dT23mL0ow==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vitest/-/vitest-0.29.3.tgz}
     id: registry.npmmirror.com/vitest/0.29.3
     name: vitest
@@ -5257,8 +5278,8 @@ packages:
       tinybench: registry.npmmirror.com/tinybench/2.4.0
       tinypool: registry.npmmirror.com/tinypool/0.3.1
       tinyspy: registry.npmmirror.com/tinyspy/1.1.1
-      vite: registry.npmmirror.com/vite/4.1.4_@types+node@18.15.3
-      vite-node: registry.npmmirror.com/vite-node/0.29.3_@types+node@18.15.3
+      vite: registry.npmmirror.com/vite/4.1.4_ssb7q7cm6axxaktzugbzw3b5e4
+      vite-node: registry.npmmirror.com/vite-node/0.29.3_ssb7q7cm6axxaktzugbzw3b5e4
       why-is-node-running: registry.npmmirror.com/why-is-node-running/2.2.2
     transitivePeerDependencies:
       - less

@@ -95,6 +95,10 @@ const routerAll = reactive({
             {
               name: '3d场景初始(babylon)',
               url: '/_dev/gl/babylon-start'
+            },
+            {
+              name: '3d场景初始(webgl)',
+              url: '/_dev/gl/webgl-start'
             }
           ]
         },

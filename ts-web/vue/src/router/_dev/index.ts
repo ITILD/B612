@@ -5,6 +5,7 @@ const routerDev = [
   { path: '/_dev/gl/babylon-start', component: () => import('@/views/_dev/gl/babylon-start-page.vue') },
   { path: '/_dev/gl/map2d-start', component: () => import('@/views/_dev/gl/map2d-start-page.vue') },
   { path: '/_dev/gl/map3d-start', component: () => import('@/views/_dev/gl/map3d-start-page.vue') },
+  { path: '/_dev/gl/webgl-start', component: () => import('@/views/_dev/gl/webgl-start-page.vue') },
   { path: '/_dev/gl/WebGLAnimate', component: () => import('@/views/_dev/gl/WebGLAnimate.vue') },
   // map
   { path: '/_dev/gis/map2d-ol-ext-start', component: () => import('@/views/_dev/gis/map2d-ol-ext-page.vue') },

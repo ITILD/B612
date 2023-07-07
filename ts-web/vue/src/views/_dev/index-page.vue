@@ -103,6 +103,16 @@ const routerAll = reactive({
           ]
         },
         {
+          img: '',
+          name: 'glBase',
+          child: [
+            {
+              name: '3d场景测试(webgl)',
+              url: '/_dev/glBase/webgl-start'
+            }
+          ]
+        },
+        {
           // L2
           img: '',
           name: 'gis',
@@ -110,6 +120,10 @@ const routerAll = reactive({
             {
               name: '2d地图初始(带ol-ext插件)',
               url: '/_dev/gis/map2d-ol-ext-start'
+            },
+            {
+              name: '2d地图(ol-ext插件复制粘贴)',
+              url: '/_dev/gis/map2d-ol-ext-copy'
             },
             {
               name: '3d地图初始(cesium google 测试)',

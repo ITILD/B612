@@ -7,8 +7,11 @@ const routerDev = [
   { path: '/_dev/gl/map3d-start', component: () => import('@/views/_dev/gl/map3d-start-page.vue') },
   { path: '/_dev/gl/webgl-start', component: () => import('@/views/_dev/gl/webgl-start-page.vue') },
   { path: '/_dev/gl/WebGLAnimate', component: () => import('@/views/_dev/gl/WebGLAnimate.vue') },
-  // map
+  //glBase 
+  { path: '/_dev/glBase/webgl-start', component: () => import('@/views/_dev/glBase/webgl-start-page.vue') },
+  // gis
   { path: '/_dev/gis/map2d-ol-ext-start', component: () => import('@/views/_dev/gis/map2d-ol-ext-page.vue') },
+  { path: '/_dev/gis/map2d-ol-ext-copy', component: () => import('@/views/_dev/gis/map2d-ol-ext-copy-page.vue') },
   { path: '/_dev/gis/map3d-testgoogle', component: () => import('@/views/_dev/gis/map3d-google-3dtiles-page.vue') },
   // map
   { path: '/_dev/beauty/web-design-base', component: () => import('@/views/_dev/beauty/web-design-base-page.vue') },

@@ -109,6 +109,10 @@ const routerAll = reactive({
             {
               name: '3d场景测试(webgl)',
               url: '/_dev/glBase/webgl-start'
+            },
+            {
+              name: '3d场景测试1(webgl)',
+              url: '/_dev/glBase/webgl-start1'
             }
           ]
         },

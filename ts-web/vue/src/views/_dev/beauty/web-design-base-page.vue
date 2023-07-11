@@ -65,7 +65,6 @@ onBeforeUnmount(() => {})
 
 .box1 {
   display: grid;
-  grid-gap: var(--_1by9knb0);
   grid-template-columns: repeat(12, 1fr);
 
   .layerBox {
@@ -101,7 +100,6 @@ onBeforeUnmount(() => {})
 
 .box2 {
   display: grid;
-  grid-gap: var(--_1by9knb0);
   grid-template-columns: repeat(12, 1fr);
 
   .layerBox {

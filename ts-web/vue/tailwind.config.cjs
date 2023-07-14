@@ -6,7 +6,16 @@ module.exports = {
   purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      // 横纵比 aspect-[9/16]
+      // aspectRatio: {
+      //   '9/16': '9/16',
+      // },
+      // gridTemplateRows: {
+      //   // grid布局 12列
+      //   '12': 'repeat(12, minmax(0, 1fr))',
+      // }
+    },
   },
   plugins: [],
 }

@@ -9,7 +9,7 @@ const routerDev = [
   { path: '/_dev/gl/WebGLAnimate', component: () => import('@/views/_dev/gl/WebGLAnimate.vue') },
   //glBase 
   { path: '/_dev/glBase/webgl-start', component: () => import('@/views/_dev/glBase/webgl-start-page.vue') },
-  { path: '/_dev/glBase/webgl-start', component: () => import('@/views/_dev/glBase/webgl-start1-page.vue') },
+  { path: '/_dev/glBase/webgl-start1', component: () => import('@/views/_dev/glBase/webgl-start1-page.vue') },
   // gis
   { path: '/_dev/gis/map2d-ol-ext-start', component: () => import('@/views/_dev/gis/map2d-ol-ext-page.vue') },
   { path: '/_dev/gis/map2d-ol-ext-copy', component: () => import('@/views/_dev/gis/map2d-ol-ext-copy-page.vue') },

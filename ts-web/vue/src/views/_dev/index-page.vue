@@ -161,6 +161,10 @@ const routerAll = reactive({
               name: '网页底板设计基础',
               url: '/_dev/beauty/web-design-base'
             },
+            {
+              name: '网页滚动轴设计',
+              url: '/_dev/beauty/web-scroll-base-page'
+            },
           ]
         },
         {

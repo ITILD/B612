@@ -15,7 +15,8 @@ const routerDev = [
   { path: '/_dev/gis/map2d-ol-ext-copy', component: () => import('@/views/_dev/gis/map2d-ol-ext-copy-page.vue') },
   { path: '/_dev/gis/map3d-testgoogle', component: () => import('@/views/_dev/gis/map3d-google-3dtiles-page.vue') },
   // map
-  { path: '/_dev/beauty/web-design-base', component: () => import('@/views/_dev/beauty/web-design-base-page.vue') },
+  { path: '/_dev/beauty/web-design-base', component: () => import('@/views/_dev/beauty/web-scroll-base-page.vue') },
+  { path: '/_dev/beauty/web-scroll-base-page', component: () => import('@/views/_dev/beauty/web-scroll-base-page.vue') },
 
   // 带添加页面<router-link :to="L3.url" class="text-lg bg-blue-100">{{ L3.name }}</router-link>
   // todo

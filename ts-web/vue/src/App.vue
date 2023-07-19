@@ -44,43 +44,34 @@ body {
 /* 滚动条整体 高度写不写，都不影响，因为会根据内容的长度自动计算*/
 
 .scroll::-webkit-scrollbar {
-  width: 4px;
+  width: 8px;
 }
 /* 两个滚动条交接处 -- x轴和y轴 */
-/* .scroll-container::-webkit-scrollbar-corner {
+.scroll-container::-webkit-scrollbar-corner {
     background-color: transparent;
-} */
+}
 
 /* 滚动条滑块 */
 .scroll::-webkit-scrollbar-thumb {
-  background: #4cdbff3f;
+  background: #111827d6;
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 /* 内容hover */
-.scroll:hover::-webkit-scrollbar {
+/* .scroll:hover::-webkit-scrollbar {
   width: 8px;
 }
 .scroll:hover::-webkit-scrollbar-thumb {
   background: #4cdbffb0;
-}
+} */
 
 /* 滚动条hover */
-.scroll::-webkit-scrollbar:hover {
+/* .scroll::-webkit-scrollbar:hover {
   width: 12px;
 }
 .scroll::-webkit-scrollbar-thumb:hover {
   background: #4cdbffb0;
-}
-/* 滚动条轨道 */
-/* .scroll::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    background: #ededed;
 } */
 
-/* 滚动条两端按钮 */
-/* .scroll::-webkit-scrollbar-button {
-} */
 </style>

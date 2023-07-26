@@ -6,7 +6,7 @@
       <li>
         <div class="w-full aspect-[9/5] md:aspect-[9/16]">
           <div class="h-30" >
-            <div ref="scrollRef" style="overflow: scroll" class="father">
+            <div ref="scrollRef" class="h-40 overflow-scroll">
               <div>111</div>
               <div>111</div>
               <div>111</div>

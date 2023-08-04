@@ -188,6 +188,7 @@ const basScroll2 = () => {
   const present = fatherClientHeight / fatherScrollHeight // 计算滚动条应该占多高
   const scrollWarp = railRef.value as HTMLElement
   scrollWarp.style.height = present * 100 + '%' // 用百分比计算rail的高度
+  
   warp.addEventListener(
     'scroll',
     (e) => {

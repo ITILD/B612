@@ -2,5 +2,6 @@
 
 pub mod prelude;
 
+pub mod gis_osm_pois_free_1;
 pub mod user;
 pub mod user_manager;

@@ -3,12 +3,15 @@
 use sea_orm::entity::prelude::*;
 
 #[derive(Clone, Debug, PartialEq, DeriveEntityModel, Eq)]
-#[sea_orm(table_name = "user_manager")]
+#[sea_orm(table_name = "gis_osm_pois_free_1")]
 pub struct Model {
     #[sea_orm(primary_key, auto_increment = false)]
-    pub id: i32,
+    pub gid: i32,
+    pub osm_id: Option<String>,
+    pub code: Option<i32>,
+    pub fclass: Option<String>,
     pub name: Option<String>,
-    pub password: Option<String>,
+    pub geom: Option<String>,
 }
 
 #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]

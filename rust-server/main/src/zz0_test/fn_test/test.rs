@@ -12,7 +12,7 @@ pub async fn test0() -> Result<(), DbErr> {
     match user_option {
         Option::Some(user) => {
             println!("{}", user.id);
-            println!("ID: {:?}", user);
+            println!("IDtest: {:?}", user);
         }
         Option::None => {
             println!("user is nothing");

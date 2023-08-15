@@ -15,13 +15,3 @@ pub struct Model {
 pub enum Relation {}
 
 impl ActiveModelBehavior for ActiveModel {}
-
-
-// Schema	数据库(Database)
-// Entity	数据表及关系(Table and Relation)
-// Model	数据表(Table)
-// Relation	关系(Relation)
-// Column	字段的定义
-// PrimaryKey	主键(Primary key)
-// Attribute	字段(Column)
-// ActiveModel	可写操作

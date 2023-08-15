@@ -3,6 +3,7 @@
   <div class="main">
     <canvas id="webgldom" class="cesiumContainer"></canvas>
   </div>
+  
 </template>
 <script setup lang="ts">
 // vue

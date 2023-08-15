@@ -19,3 +19,8 @@
 <!-- 通用模型和地理编辑加载器 材质加载器   默认设置-->
 
 <!-- 图片转格式svg    https://picsvg.com/ https://vectormaker.co/  https://vectorizer.ai/api#pricing-->
+
+
+<!--  数据库比较 absurd-sql -->
+<!-- 浮雕风格 突起 https://neumorphism.io/#5e5555 -->
+<!-- 部件库 https://uiverse.io/ -->

@@ -1,8 +1,10 @@
 {
 	"name": "rust-main",
 	"scripts": {
-		"watch":"cargo watch -q -c -w src/ -x run",
-		"update_entity":"sea-orm-cli generate entity -u sqlite://db/test_tempalte.db -o src/zz1_template/entity_test",
+		"dev":"cargo watch -q -c -w src/ -x run",
+		"更新数据库实体":"sea-orm-cli generate entity -u sqlite://db/test_tempalte.db -o src/zz1_template/entity_test",
+		"更新依赖": "cargo update",
+		"build": "cargo build",
 		"libtree": "cargo tree"
 	}
 }

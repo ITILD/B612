@@ -26,3 +26,11 @@ fast_log = "1.5.51"
 sea-orm = { version = "^0.10.7", features = ["sqlx-sqlite", "runtime-tokio-native-tls", "macros"] }
 # 设置.env文件为默认配置
 dotenvy = "0.15.6"
+
+# swagger
+utoipa = { version = "3.4.4", features = ["axum_extras"] }
+utoipa-swagger-ui = { version = "3.1.5", features = ["axum"] }
+utoipa-redoc = { version = "0.1.0", features = ["axum"] }
+
+# http请求库
+hyper = { version = "0.14.27", features = ["full"] }

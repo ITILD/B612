@@ -10,6 +10,10 @@ cargo install cargo-watch
 
 # 添加依赖
 cargo add
+# 添加依赖
+cargo add 库 --features ""
+
+# 更新依赖
 
 # env监测
 cargo add dotenvy

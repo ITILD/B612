@@ -26,10 +26,12 @@ async fn main() {
     /* 路由*/
     // controller 子路由
     let base = zz1_template::controller::base::start();
+    let openapi = zz1_template::controller::openapi::start();
     // 根路由
     let app = Router::new()
-        .route("/", get(root_controller))
-        .nest("/zz1_template", Router::new().nest("/base", base));
+        .route("/", get(root_json))
+        .nest("/zz1_template", Router::new().nest("/base", base))
+        .nest("/zz1_template", Router::new().nest("/openapi", openapi));
 
     axum::Server::bind(&server_url)
         .serve(app.into_make_service())
@@ -44,9 +46,16 @@ struct Info {
     email: String,
     date: i32,
 }
-async fn root_controller() -> Json<Info> {
+async fn root_json() -> Json<Info> {
     Json(Info {
         email: "geolifestudy@gmail.com".to_string(),
         date: 20230215,
     })
+}
+
+
+// #[get("/")]
+use axum::response::Html;
+async fn root_html() -> Html<&'static str> {
+    Html("<h1>connect login</h1>")
 }

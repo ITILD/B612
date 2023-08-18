@@ -1,19 +1,17 @@
-
-
-
-
 use axum::{
     extract,
-    routing::{get, post},Router,
+    routing::{get, post},
+    Router,
 };
 use std::{
     net::{Ipv4Addr, SocketAddr},
     sync::Arc,
 };
 
-use axum::{routing};
+use axum::routing;
 use utoipa::{
-    openapi::security::{ApiKey, ApiKeyValue, SecurityScheme},Modify, OpenApi,
+    openapi::security::{ApiKey, ApiKeyValue, SecurityScheme},
+    Modify, OpenApi,
 };
 use utoipa_redoc::{Redoc, Servable};
 use utoipa_swagger_ui::SwaggerUi;
@@ -22,20 +20,9 @@ use utoipa_swagger_ui::SwaggerUi;
 pub fn start() -> Router {
     #[derive(OpenApi)]
     #[openapi(
-        paths(
-            todo::list_todos,
-            todo::search_todos,
-            todo::create_todo,
-            todo::mark_done,
-            todo::delete_todo,
-        ),
-        components(
-            schemas(todo::Todo, todo::TodoError)
-        ),
-        modifiers(&SecurityAddon),
-        tags(
-            (name = "todo", description = "Todo items management API")
-        )
+        paths(todo::list_todos,todo::search_todos,todo::create_todo,todo::mark_done,todo::delete_todo,),
+        components(schemas(todo::Todo, todo::TodoError)),modifiers(&SecurityAddon),
+        tags((name = "todo", description = "Todo items management API"))
     )]
     struct ApiDoc;
 
@@ -55,32 +42,30 @@ pub fn start() -> Router {
     let store = Arc::new(todo::Store::default());
     // 路由
     let api_routes = Router::new()
-    .merge(SwaggerUi::new("/swagger-ui").url("/api-docs/openapi.json", ApiDoc::openapi()))
-    .merge(Redoc::with_url("/redoc", ApiDoc::openapi()))
-    .route(
-        "/todo",
-        routing::get(todo::list_todos).post(todo::create_todo),
-    )
-    .route("/todo/search", routing::get(todo::search_todos))
-    .route(
-        "/todo/:id",
-        routing::put(todo::mark_done).delete(todo::delete_todo),
-    )
-    .with_state(store);
+        .merge(SwaggerUi::new("/swagger-ui").url("/api-docs1/openapi.json", ApiDoc::openapi()))
+        .merge(Redoc::with_url("/redoc", ApiDoc::openapi()))
+        .route(
+            "/todo",
+            routing::get(todo::list_todos).post(todo::create_todo),
+        )
+        .route("/todo/search", routing::get(todo::search_todos))
+        .route(
+            "/todo/:id",
+            routing::put(todo::mark_done).delete(todo::delete_todo),
+        )
+        .with_state(store);
     api_routes
 }
 
-
-
-
-
 pub mod todo {
-    use std::sync::Arc;
     use axum::{
         extract::{Path, Query, State},
         response::IntoResponse,
         Json,
     };
+
+    use std::sync::Arc;
+
     use hyper::{HeaderMap, StatusCode};
     use serde::{Deserialize, Serialize};
     use tokio::sync::Mutex;

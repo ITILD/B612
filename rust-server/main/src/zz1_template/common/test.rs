@@ -1,4 +1,4 @@
-use super::super::entity_test::user;
+use super::super::entity::user;
 use sea_orm::{entity::prelude::*, Database};
 pub async fn test0() -> Result<(), DbErr> {
     println!("test start!!!!!!!!!!");

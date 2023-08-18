@@ -14,19 +14,18 @@ use serde_json::Value;
 use std::collections::HashMap;
 
 /***************************************************** controller router *****************************************************/
-pub fn start() -> Router {
+pub fn init() -> Router {
     // 路由
     let api_routes = Router::new()
         // http://127.0.0.1:8800/zz1_template/base/get
         .route("/get", get(get_json))
         .route("/get_str", get(get_str))
         .route("/get_params", get(get_params))
-        .route("/get_params_return_str", get(get_params_query_return_str))
+        .route("/get_params_return_str", get(get_params_query_return_str).post(post_params_form_return_str))
         .route(
             "/get_params_return_str/:id/:info",
             get(get_params_path_return_str),
         )
-        .route("/get_params_return_str", post(post_params_form_return_str))
         .route(
             "/post_params_json_return_str",
             post(post_params_json_return_str),

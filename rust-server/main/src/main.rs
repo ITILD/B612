@@ -10,7 +10,6 @@ async fn main() {
     // 测试
     test::init().await;
     // ip和路由配置
-    
     config::route().await;
 
 }

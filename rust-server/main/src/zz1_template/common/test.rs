@@ -10,13 +10,8 @@ pub async fn test0() -> Result<(), DbErr> {
     let user_option: Option<user::Model> = user::Entity::find_by_id(1).one(&db).await?;
 
     match user_option {
-        Option::Some(user) => {
-            println!("{}", user.id);
-            println!("ID: {:?}", user);
-        }
-        Option::None => {
-            println!("user is nothing");
-        }
+        Option::Some(user) => println!("ID: {:?}", user),
+        Option::None =>println!("user is nothing")
     }
     // println!("ID: {:?}", user);
 

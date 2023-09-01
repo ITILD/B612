@@ -5,14 +5,16 @@ pub async fn test0() -> Result<(), DbErr> {
     const DATABASE_URL: &str = "sqlite://db/test_tempalte.db";
     let db = Database::connect(DATABASE_URL)
         .await
-        .expect("连接数据库失败");
+        .expect("测试连接数据库失败");
     // Find by primary key
     let user_option: Option<user::Model> = user::Entity::find_by_id(1).one(&db).await?;
 
     match user_option {
         Option::Some(user) => {
-            println!("{}", user.id);
-            println!("IDtest: {:?}", user);
+            println!("测试id:{}", user.id);
+            println!("测试直接输出:{:?}", user);
+            println!("测试格式化输出:{:#?}", user);
+
         }
         Option::None => {
             println!("user is nothing");

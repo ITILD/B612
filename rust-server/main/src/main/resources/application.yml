@@ -1,0 +1,12 @@
+server:
+  session-timeout: 1800
+  port: 8080
+spring:
+  profiles:
+    active: dev
+mybatis:
+  configuration:
+    #开启驼峰命名转换
+    map-underscore-to-camel-case: true
+  mapper-locations: mybatis/**/*Mapper.xml
+#自定义的属性和值

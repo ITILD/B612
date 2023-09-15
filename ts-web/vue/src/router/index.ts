@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MainPage from '../views/index-page.vue'
 import { routerDev } from './_dev'
+import { routerBlog } from './blog'
 const routes = [
   { path: '/', component: MainPage },
-  // blob
-  { path: '/blob', component: () => import('../views/blob/index-page.vue') },
+  // blog
+  ...routerBlog,
   // 开发测试
   ...routerDev
 ]

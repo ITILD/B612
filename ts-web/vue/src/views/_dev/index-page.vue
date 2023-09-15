@@ -104,15 +104,27 @@ const routerAll = reactive({
         },
         {
           img: '',
-          name: 'glBase',
+          name: 'libBase 依赖库引入基础测试',
           child: [
             {
               name: '3d场景测试(webgl)',
-              url: '/_dev/glBase/webgl-start'
+              url: '/_dev/libBase/webgl-start'
             },
             {
               name: '3d场景测试1(webgl)',
-              url: '/_dev/glBase/webgl-start1'
+              url: '/_dev/libBase/webgl-start1'
+            },
+            {
+              name: 'jsts(jts)引入',
+              url: '/_dev/libBase/jsts-start'
+            },
+            {
+              name: 'marked-引入',
+              url: '/_dev/libBase/marked-start'
+            },
+            {
+              name: 'monaco引入',
+              url: '/_dev/libBase/monaco--start'
             }
           ]
         },

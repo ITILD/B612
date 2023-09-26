@@ -1,7 +1,8 @@
 mod test;
 mod config;
 mod zz0_test;
-mod zz1_template;
+mod project_template;
+mod page;
 /**
  * 参考spring 约定大于配置
  */

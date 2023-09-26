@@ -17,22 +17,9 @@ use std::collections::HashMap;
 pub fn init() -> Router {
     // 路由
     let api_routes = Router::new()
-        // http://127.0.0.1:8800/zz1_template/base/get
+        // http://127.0.0.1:8800/page/base/get
         .route("/get", get(get_json))
-        .route("/get_str", get(get_str))
-        .route("/get_params", get(get_params))
-        .route("/get_params_return_str", get(get_params_query_return_str).post(post_params_form_return_str))
-        .route(
-            "/get_params_return_str/:id/:info",
-            get(get_params_path_return_str),
-        )
-        .route(
-            "/post_params_json_return_str",
-            post(post_params_json_return_str),
-        )
-        .route("/get_all_headers", get(get_all_headers))
-        .route("/get_user_db", get(get_user_db));
-    // return
+       ;
     api_routes
 }
 
@@ -47,7 +34,7 @@ async fn get_str() -> String {
 }
 
 /**
- * http://127.0.0.1:8800/zz1_template/base/get_params?name=wxwxwx&keyword=axum.rs
+ * http://127.0.0.1:8800/project_template/base/get_params?name=wxwxwx&keyword=axum.rs
  * 不建议map 维护困难
  */
 async fn get_params(Query(mut params): Query<HashMap<String, String>>) -> String {
@@ -56,7 +43,7 @@ async fn get_params(Query(mut params): Query<HashMap<String, String>>) -> String
     name
 }
 /**
- * http://127.0.0.1:8800/zz1_template/base/get_params_return_str?id=22&info=info0
+ * http://127.0.0.1:8800/project_template/base/get_params_return_str?id=22&info=info0
  * Deserialize 必须实现
  */
 async fn get_params_query_return_str(Query(args): Query<BaseInfoOpt>) -> String {
@@ -65,7 +52,7 @@ async fn get_params_query_return_str(Query(args): Query<BaseInfoOpt>) -> String 
     format!("id {}, info: {} of subjects", id, info)
 }
 /**
- * http://127.0.0.1:8800/zz1_template/base/get_params_return_str/22/info0
+ * http://127.0.0.1:8800/project_template/base/get_params_return_str/22/info0
  * Deserialize 必须实现
  */
 async fn get_params_path_return_str(Path(args): Path<BaseInfoOpt>) -> String {
@@ -74,7 +61,7 @@ async fn get_params_path_return_str(Path(args): Path<BaseInfoOpt>) -> String {
     format!("id {}, info: {} of subjects", id, info)
 }
 /**
- * http://127.0.0.1:8800/zz1_template/base/get_params_return_str
+ * http://127.0.0.1:8800/project_template/base/get_params_return_str
  * Deserialize 必须实现
  */
 async fn post_params_form_return_str(Form(args): Form<BaseInfoOpt>) -> String {
@@ -83,7 +70,7 @@ async fn post_params_form_return_str(Form(args): Form<BaseInfoOpt>) -> String {
     format!("id {}, info: {} of subjects", id, info)
 }
 /**
- * http://127.0.0.1:8800/zz1_template/base/get_params_return_str
+ * http://127.0.0.1:8800/project_template/base/get_params_return_str
  * Deserialize 必须实现
  */
 async fn post_params_json_return_str(Json(args): Json<BaseInfoOpt>) -> String {
@@ -92,7 +79,7 @@ async fn post_params_json_return_str(Json(args): Json<BaseInfoOpt>) -> String {
     format!("id {}, info: {} of subjects", id, info)
 }
 /**
- * http://127.0.0.1:8800/zz1_template/base/get_params_return_str
+ * http://127.0.0.1:8800/project_template/base/get_params_return_str
  * Deserialize 必须实现
  */
 // async fn post_params_json_return_object(Json(args): Json<BaseInfoOpt>) -> BaseInfoOpt {
@@ -124,7 +111,7 @@ async fn get_all_headers(headers: HeaderMap) -> String {
 // pub enum Relation {}
 
 // impl ActiveModelBehavior for ActiveModel {}
-// http://127.0.0.1:8800/zz1_template/base/get_user_db
+// http://127.0.0.1:8800/project_template/base/get_user_db
 async fn get_user_db(headers: HeaderMap) -> String {
     // get_user_db_c();
     format!("{:?}", headers)

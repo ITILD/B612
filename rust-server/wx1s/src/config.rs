@@ -6,17 +6,22 @@ use axum::extract::Json;
 use axum::{routing::get, Router};
 use serde::Serialize;
 use std::str::FromStr;
-use std::{env, net::SocketAddr};
+use std::{env, net::SocketAddr,fs,path::Path};
+use crate::project_template;
+use crate::page;
 
-use crate::zz1_template;
 
 //  1.路由
 /**
  * IP和路由配置
  */
 pub async fn route() {
-    let mut router = Router::new().route("/", get(root_json)); // 根路由
-    router = router.merge(zz1_template::route()); // 子路由
+    let str = fs::read_to_string("src/resources/templates/index.html").expect("Error in reading the file");
+    println!("{}", str);
+    let mut router = Router::new().route("/", get(root_html)); // 根路由
+    // let mut router = Router::new().route("/", get(root_json)); // 根路由
+    router = router.merge(project_template::route()); // 子路由
+    router = router.merge(page::route()); // 子路由
     ip_set(router).await; // 设置ip
 }
 
@@ -45,7 +50,13 @@ async fn root_json() -> Json<Info> {
         date: 20230215,
     })
 }
-// use axum::response::Html;
-// async fn root_html() -> Html<&'static str> {
-//     Html("<h1>connect login</h1>")
-// }
+
+use axum::response::Html;
+/**
+ * 初始html
+ */
+async fn root_html() -> Html<String> {
+    let str = fs::read_to_string("src/resources/templates/index.html").expect("Error in reading the file");
+    // println!("{}", str);
+    Html(str)
+}

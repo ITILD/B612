@@ -11,7 +11,6 @@ pub mod common;
 pub fn route() -> Router { 
     let mut router = Router::new();
     router = router.merge(controller::base::init());
-    router = router.merge(controller::user::init());
-    router = Router::new().nest("/zz1_template",router);
+    router = Router::new().nest("/page",router);
     return router
 }

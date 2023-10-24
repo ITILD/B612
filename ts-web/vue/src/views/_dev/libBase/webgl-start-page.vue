@@ -1,15 +1,19 @@
-//cesiumMap.vue
 <template>
-  <div class="main">
-    <canvas id="webgldom" class="cesiumContainer"></canvas>
-  </div>
+  <ul class="grid grid-cols-1 md:grid-cols-8">
+    <li>
+      <div class="w-full aspect-[9/5] md:aspect-[9/16]">
+        <canvas id="webgldom" class="w-full h-full"></canvas>
+      </div>
+      <p>
+        <span>.base</span>
+      </p>
+    </li>
+  </ul>
 </template>
 <script setup lang="ts">
 // vue
-import { onBeforeUnmount, onMounted } from 'vue'
-
-
-
+import { onBeforeUnmount, onMounted,ref } from 'vue'
+import {GLStart} from './webgl-start-lib/GLStart'
 onMounted(() => {
   initWebgl()
   // 全局
@@ -23,48 +27,7 @@ onBeforeUnmount(() => {
 
 const initWebgl = () => {
   //POINT-> TRIANGLES
-  /**
-   * _ 私有属性和方法
-   *
-   * 无状态或纯pipe式处理 静态工具类
-   */
-  class GLStart {
-    constructor() {}
 
-    /**
-     * 编译shader代码
-     * @param {*} gl
-     * @param {*} type
-     * @param {*} source
-     *  const vertexShader = _loadShader(gl, gl.VERTEX_SHADER, vsSource);
-     * @returns
-     */
-    static _loadShader(gl:WebGLRenderingContext, type: number, source: string) {
-      const shader = gl.createShader(type) as WebGLShader  // 创建着色器对象
-      gl.shaderSource(shader, source) // 提供shader代码  绑定资源
-      gl.compileShader(shader) // 编译 -> 生成着色器
-      return shader
-    }
-
-    /**
-     * 初始化一个着色程序
-     * @param {*} gl
-     * @param {*} vsSource
-     * @param {*} fsSource
-     * @returns
-     */
-    static initShaderProgram(gl:WebGLRenderingContext, vsSource:string, fsSource: string) {
-      const vertexShader = this._loadShader(gl, gl.VERTEX_SHADER, vsSource)
-      const fragmentShader = this._loadShader(gl, gl.FRAGMENT_SHADER, fsSource)
-
-      // Create the shader program
-      const shaderProgram = gl.createProgram() as WebGLProgram 
-      gl.attachShader(shaderProgram, vertexShader)//程序附加上着色器
-      gl.attachShader(shaderProgram, fragmentShader)
-      gl.linkProgram(shaderProgram)//连接到程序
-      return shaderProgram
-    }
-  }
 
   // 顶点着色器代码(决定顶在哪里，大小)
   let VSHADER_SOURCE =
@@ -84,10 +47,10 @@ const initWebgl = () => {
     'void main() {\n' +
     'gl_FragColor = v_color;\n' + // 设置顶点的颜色
     '}\n'
-    
+
   // 1.获取webgl
   let canvas = document.getElementById('webgldom') as HTMLCanvasElement
-  let gl = canvas.getContext('webgl') as WebGLRenderingContext  //WebGLRenderingContext对象 绘图上下文
+  let gl = canvas.getContext('webgl') as WebGLRenderingContext //WebGLRenderingContext对象 绘图上下文
 
   // 2.清空屏幕
   gl.clearColor(0.5, 0.5, 0.5, 1.0)
@@ -97,12 +60,16 @@ const initWebgl = () => {
   let shaderProgram = GLStart.initShaderProgram(gl, VSHADER_SOURCE, FSHADER_SOURCE)
   // gl.program = program
   gl.useProgram(shaderProgram)
-  let n = initVertexBuffers(gl,shaderProgram, [0.0, 0.5, -0.5, -0.5, 0.5, -0.5])
+  let n = initVertexBuffers(gl, shaderProgram, [0.0, 0.5, -0.5, -0.5, 0.5, -0.5])
 
   // 画n个点
   gl.drawArrays(gl.TRIANGLES, 0, n)
 
-  function initVertexBuffers(gl: WebGLRenderingContext,shaderProgram: WebGLProgram, jsArray: Iterable<number>) {
+  function initVertexBuffers(
+    gl: WebGLRenderingContext,
+    shaderProgram: WebGLProgram,
+    jsArray: Iterable<number>
+  ) {
     let vertices = new Float32Array(jsArray)
 
     let vertexBuffer = gl.createBuffer() // 创建一个缓存对象，用于存放顶点数据

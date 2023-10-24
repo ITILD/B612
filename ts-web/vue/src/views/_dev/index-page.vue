@@ -84,35 +84,32 @@ const routerAll = reactive({
           img: '',
           name: 'gl',
           child: [
-            {
-              name: '2d地图初始',
-              url: '/_dev/gl/map2d-start'
-            },
-            {
-              name: '3d地图初始(cesium)',
-              url: '/_dev/gl/map3d-start'
-            },
-            {
-              name: '3d场景初始(babylon)',
-              url: '/_dev/gl/babylon-start'
-            },
-            {
-              name: '3d场景初始(webgl)',
-              url: '/_dev/gl/webgl-start'
-            }
+ 
           ]
         },
         {
           img: '',
           name: 'libBase 依赖库引入基础测试',
           child: [
-            {
-              name: '3d场景测试(webgl)',
+          {
+              name: '原生webgl',
               url: '/_dev/libBase/webgl-start'
             },
             {
-              name: '3d场景测试1(webgl)',
-              url: '/_dev/libBase/webgl-start1'
+              name: 'babylon引入',
+              url: '/_dev/libBase/babylon-start'
+            },
+            {
+              name: 'openlayer引入',
+              url: '/_dev/libBase/openlayer-start'
+            },
+            {
+              name: 'cesium引入',
+              url: '/_dev/libBase/cesium-start'
+            },
+            {
+              name: 'threejs引入',
+              url: '/_dev/libBase/threejs-start'
             },
             {
               name: 'jsts(jts)引入',
@@ -125,6 +122,18 @@ const routerAll = reactive({
             {
               name: 'monaco引入',
               url: '/_dev/libBase/monaco--start'
+            },
+            {
+              name: 'mediapipe人脸识别引入',
+              url: '/_dev/libBase/mediapipe-start'
+            },
+            {
+              name: 'opencv引入',
+              url: '/_dev/libBase/opencv-start'
+            },
+            {
+              name: 'tf',
+              url: '/_dev/libBase/tf-start'
             }
           ]
         },
@@ -185,7 +194,21 @@ const routerAll = reactive({
           name: 'amazing',
           child: [
           ]
-        }
+        },
+        {
+          img: '',
+          name: 'template',
+          child: [
+            {
+              name: '多点击展示模板',
+              url: '/_dev/beauty/multiClickAndShow'
+            },
+            {
+              name: 'vscode的vue基础模板',
+              url: '/_dev/beauty/vscodeTips'
+            },
+          ]
+        },
       ]
     },
   ]

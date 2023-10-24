@@ -2,12 +2,6 @@ const routerDev = [
   // 已添加
   { path: '/_dev', component: () => import('@/views/_dev/index-page.vue') },
   // gl
-  { path: '/_dev/gl/babylon-start', component: () => import('@/views/_dev/gl/babylon-start-page.vue') },
-  { path: '/_dev/gl/map2d-start', component: () => import('@/views/_dev/gl/map2d-start-page.vue') },
-  { path: '/_dev/gl/map3d-start', component: () => import('@/views/_dev/gl/map3d-start-page.vue') },
-  { path: '/_dev/gl/webgl-start', component: () => import('@/views/_dev/gl/webgl-start-page.vue') },
-  { path: '/_dev/gl/WebGLAnimate', component: () => import('@/views/_dev/gl/WebGLAnimate.vue') },
-
   // gis
   { path: '/_dev/gis/map2d-ol-ext-start', component: () => import('@/views/_dev/gis/map2d-ol-ext-page.vue') },
   { path: '/_dev/gis/map2d-ol-ext-copy', component: () => import('@/views/_dev/gis/map2d-ol-ext-copy-page.vue') },
@@ -20,10 +14,19 @@ const routerDev = [
   // todo
   { path: '/_dev/gis/babylon-map', component: () => import('@/views/_dev/gis/babylon-map-page.vue') },
   //libBase 
+  { path: '/_dev/libBase/babylon-start', component: () => import('@/views/_dev/libBase/babylon-start-page.vue') },
+  { path: '/_dev/libBase/openlayer-start', component: () => import('@/views/_dev/libBase/openlayer-start-page.vue') },
+  { path: '/_dev/libBase/cesium-start', component: () => import('@/views/_dev/libBase/cesium-start-page.vue') },
   { path: '/_dev/libBase/webgl-start', component: () => import('@/views/_dev/libBase/webgl-start-page.vue') },
-  { path: '/_dev/libBase/webgl-start1', component: () => import('@/views/_dev/libBase/webgl-start1-page.vue') },
+  { path: '/_dev/libBase/WebGLAnimate', component: () => import('@/views/_dev/libBase/WebGLAnimate.vue') },
+  { path: '/_dev/libBase/mediapipe-start', component: () => import('@/views/_dev/libBase/mediapipe-start-page.vue') },
+  { path: '/_dev/libBase/opencv-start', component: () => import('@/views/_dev/libBase/opencv-start-page.vue') },
+  { path: '/_dev/libBase/threejs-start', component: () => import('@/views/_dev/libBase/threejs-start-page.vue') },
+  { path: '/_dev/libBase/tf-start', component: () => import('@/views/_dev/libBase/tf-start-page.vue') },
+  { path: '/_dev/libBase/webgl-start', component: () => import('@/views/_dev/libBase/webgl-start-page.vue') },
   { path: '/_dev/libBase/jsts-start', component: () => import('@/views/_dev/libBase/jsts-start-page.vue') },
   { path: '/_dev/libBase/monaco-start', component: () => import('@/views/_dev/libBase/monaco-start-page.vue') },
   { path: '/_dev/libBase/marked-start', component: () => import('@/views/_dev/libBase/marked-start-page.vue') }
+
 ]
 export { routerDev }

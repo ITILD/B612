@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@babylonjs/core': ^6.6.0
+  '@mediapipe/tasks-vision': ^0.10.7
   '@playwright/test': ^1.31.1
   '@rushstack/eslint-patch': ^1.2.0
   '@tauri-apps/api': ^1.2.0
@@ -11,6 +12,7 @@ specifiers:
   '@types/marked': ^5.0.0
   '@types/node': ^18.14.2
   '@types/ol-ext': npm:@siedlerchr/types-ol-ext@^3.2.0
+  '@types/three': ^0.157.0
   '@vitejs/plugin-vue': ^4.0.0
   '@vue/eslint-config-prettier': ^7.1.0
   '@vue/eslint-config-typescript': ^11.0.2
@@ -34,6 +36,8 @@ specifiers:
   rollup: ^2.25.0
   sass: ^1.63.4
   tailwindcss: ^3.2.7
+  three: ^0.157.0
+  three-orbitcontrols: ^2.110.3
   typescript: ~4.8.4
   vite: ^4.1.4
   vite-plugin-cesium: ^1.2.22
@@ -44,6 +48,7 @@ specifiers:
 
 dependencies:
   '@babylonjs/core': registry.npmmirror.com/@babylonjs/core/6.6.0
+  '@mediapipe/tasks-vision': registry.npmmirror.com/@mediapipe/tasks-vision/0.10.7
   '@tauri-apps/api': registry.npmmirror.com/@tauri-apps/api/1.2.0
   '@types/marked': registry.npmmirror.com/@types/marked/5.0.0
   jsts: registry.npmmirror.com/jsts/2.11.0
@@ -52,6 +57,8 @@ dependencies:
   ol: registry.npmmirror.com/ol/7.3.0
   ol-ext: registry.npmmirror.com/ol-ext/4.0.8_ol@7.3.0
   pinia: registry.npmmirror.com/pinia/2.0.33_7h6e7cvei2rsgyre2mq4fyhehq
+  three: registry.npmmirror.com/three/0.157.0
+  three-orbitcontrols: registry.npmmirror.com/three-orbitcontrols/2.110.3_three@0.157.0
   vue: registry.npmmirror.com/vue/3.2.47
   vue-router: registry.npmmirror.com/vue-router/4.1.6_vue@3.2.47
 
@@ -63,6 +70,7 @@ devDependencies:
   '@types/jsts': registry.npmmirror.com/@types/jsts/0.17.18
   '@types/node': registry.npmmirror.com/@types/node/18.15.3
   '@types/ol-ext': registry.npmmirror.com/@siedlerchr/types-ol-ext/3.2.0
+  '@types/three': registry.npmmirror.com/@types/three/0.157.0
   '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/4.0.0_vite@4.1.4+vue@3.2.47
   '@vue/eslint-config-prettier': registry.npmmirror.com/@vue/eslint-config-prettier/7.1.0_a7sjvsbcgg5dveitgz3whbbski
   '@vue/eslint-config-typescript': registry.npmmirror.com/@vue/eslint-config-typescript/11.0.2_lrwndgfnjtuj2xuykkt4cl53wy
@@ -545,6 +553,12 @@ packages:
     version: 0.0.0
     dev: false
 
+  registry.npmmirror.com/@mediapipe/tasks-vision/0.10.7:
+    resolution: {integrity: sha512-ojuvZB8Jz8C0MRDV8u/0tWOivmoSUpHkmA93RgYsjOEfGAJ9bs/mzqY2LthbF/Cuu220iw/fzZX4/fProYKsQA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@mediapipe/tasks-vision/-/tasks-vision-0.10.7.tgz}
+    name: '@mediapipe/tasks-vision'
+    version: 0.10.7
+    dev: false
+
   registry.npmmirror.com/@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz}
     name: '@nodelib/fs.scandir'
@@ -894,10 +908,33 @@ packages:
     version: 7.3.13
     dev: true
 
+  registry.npmmirror.com/@types/stats.js/0.17.1:
+    resolution: {integrity: sha512-OgfYE1x2w1jRUXzzKABX+kOdwz2y9PE0uSwnZabkWfJTWOzm7Pvfm4JI2xqRE0q2nwUe2jZLWcrcnhd9lQU63w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/stats.js/-/stats.js-0.17.1.tgz}
+    name: '@types/stats.js'
+    version: 0.17.1
+    dev: true
+
+  registry.npmmirror.com/@types/three/0.157.0:
+    resolution: {integrity: sha512-+BG+wqEyH506w23tKpwXnCTJb/MeyeQ/wcFlSFQ26Z9hS5Qde2vc7o+aqd+z98b38PVGuHa5GYxg/3CY7qrxFw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/three/-/three-0.157.0.tgz}
+    name: '@types/three'
+    version: 0.157.0
+    dependencies:
+      '@types/stats.js': registry.npmmirror.com/@types/stats.js/0.17.1
+      '@types/webxr': registry.npmmirror.com/@types/webxr/0.5.5
+      fflate: registry.npmmirror.com/fflate/0.6.10
+      meshoptimizer: registry.npmmirror.com/meshoptimizer/0.18.1
+    dev: true
+
   registry.npmmirror.com/@types/tough-cookie/4.0.2:
     resolution: {integrity: sha512-Q5vtl1W5ue16D+nIaW8JWebSSraJVlK+EthKn7e7UcD4KWsaSJ8BqGPXNaPghgtcn/fhvrN17Tv8ksUsQpiplw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/tough-cookie/-/tough-cookie-4.0.2.tgz}
     name: '@types/tough-cookie'
     version: 4.0.2
+    dev: true
+
+  registry.npmmirror.com/@types/webxr/0.5.5:
+    resolution: {integrity: sha512-HVOsSRTQYx3zpVl0c0FBmmmcY/60BkQLzVnpE9M1aG4f2Z0aKlBWfj4XZ2zr++XNBfkQWYcwhGlmuu44RJPDqg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/webxr/-/webxr-0.5.5.tgz}
+    name: '@types/webxr'
+    version: 0.5.5
     dev: true
 
   registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.55.0_gbrymshiwbruly5dfbpezf4fny:
@@ -2552,6 +2589,12 @@ packages:
     resolution: {integrity: sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fflate/-/fflate-0.4.8.tgz}
     name: fflate
     version: 0.4.8
+    dev: true
+
+  registry.npmmirror.com/fflate/0.6.10:
+    resolution: {integrity: sha512-IQrh3lEPM93wVCEczc9SaAOvkmcoQn/G8Bo1e8ZPlY3X3bnAxWaBdvTdvM1hP62iZp0BXWDy4vTAy4fF0+Dlpg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fflate/-/fflate-0.6.10.tgz}
+    name: fflate
+    version: 0.6.10
     dev: true
 
   registry.npmmirror.com/file-entry-cache/6.0.1:
@@ -4945,6 +4988,27 @@ packages:
     name: text-table
     version: 0.2.0
     dev: true
+
+  registry.npmmirror.com/three-orbitcontrols/2.110.3_three@0.157.0:
+    resolution: {integrity: sha512-BNNbksJwbN3/MmT0X/gjz5ZCchm7bjk26SUdtJYRxfEYjDfkb/0PeUTHE/KuyJ5vb/owK3mojyy3vcqDx99sRA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/three-orbitcontrols/-/three-orbitcontrols-2.110.3.tgz}
+    id: registry.npmmirror.com/three-orbitcontrols/2.110.3
+    name: three-orbitcontrols
+    version: 2.110.3
+    deprecated: |
+      three-js exposes real modules now via three/examples/jsm/...
+      for example to import Orbit, do
+      import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+    peerDependencies:
+      three: '>= 0.110.0'
+    dependencies:
+      three: registry.npmmirror.com/three/0.157.0
+    dev: false
+
+  registry.npmmirror.com/three/0.157.0:
+    resolution: {integrity: sha512-CeAwQrf4x3z0/e+MC4F+nXLW5t0gh3pw+L6CCBqpHvOq3bGYIgRYub7Pv0j/9wR+d++OiEglyZzWyuSYbwWGOA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/three/-/three-0.157.0.tgz}
+    name: three
+    version: 0.157.0
+    dev: false
 
   registry.npmmirror.com/tinybench/2.4.0:
     resolution: {integrity: sha512-iyziEiyFxX4kyxSp+MtY1oCH/lvjH3PxFN8PGCDeqcZWAJ/i+9y+nL85w99PxVzrIvew/GSkSbDYtiGVa85Afg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tinybench/-/tinybench-2.4.0.tgz}

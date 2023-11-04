@@ -4,7 +4,9 @@
 		"dev":"cargo watch -q -c -w src/ -x run",
 		"更新数据库实体":"sea-orm-cli generate entity -u sqlite://db/test_tempalte.db -o src/project_template/entity_test",
 		"更新依赖": "cargo update",
-		"build": "cargo build",
-		"libtree": "cargo tree"
+		"build同时下载包": "cargo build",
+		"libtree": "cargo tree",
+		"检查": "cargo check"
+
 	}
 }

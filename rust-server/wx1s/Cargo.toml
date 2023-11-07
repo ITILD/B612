@@ -34,3 +34,9 @@ utoipa-redoc = { version = "0.1.0", features = ["axum"] }
 
 # http请求库
 hyper = { version = "0.14.27", features = ["full"] }
+
+# fs发静态目录 用于 HTTP 客户端和服务器的 Tower 中间件和实用程序
+tower-http = { version = "0.4.4", features = ["fs", "trace"] }
+
+
+

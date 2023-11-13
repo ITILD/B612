@@ -12,23 +12,13 @@
 </template>
 <script setup lang="ts">
 // vue
-import { onBeforeUnmount, onMounted,ref } from 'vue'
+import { onMounted } from 'vue'
 import {GLStart} from './webgl-start-lib/GLStart'
 onMounted(() => {
   initWebgl()
-  // 全局
-  // window.$ObjLargeTemp.set('viewer', viewer)
 })
-
-onBeforeUnmount(() => {
-  // viewer && viewer.destroy()
-  // window.$ObjLargeTemp.delete('viewer')
-})
-
 const initWebgl = () => {
   //POINT-> TRIANGLES
-
-
   // 顶点着色器代码(决定顶在哪里，大小)
   let VSHADER_SOURCE =
     'attribute vec4 a_Position;\n' +

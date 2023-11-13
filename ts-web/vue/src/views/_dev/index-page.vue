@@ -132,7 +132,7 @@ const routerAll = reactive({
               url: '/_dev/libBase/opencv-start'
             },
             {
-              name: 'tf',
+              name: 'tf引入',
               url: '/_dev/libBase/tf-start'
             }
           ]

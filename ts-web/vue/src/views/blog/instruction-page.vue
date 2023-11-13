@@ -2,7 +2,7 @@
   <div >简介</div>
 </template>
 
-<script setup>
+<!-- <script setup>
 import { ref, reactive, toRefs, onBeforeMount, onMounted, watchEffect, computed } from 'vue';
 import { useStore } from 'vuex';
 import { useRoute, useRouter } from 'vue-router';
@@ -13,4 +13,4 @@ import { useRoute, useRouter } from 'vue-router';
 
 </script>
 <style scoped lang='less'>
-</style>
+</style> -->

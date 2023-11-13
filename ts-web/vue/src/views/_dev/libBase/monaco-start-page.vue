@@ -13,7 +13,7 @@
 <script setup lang="ts">
 // vue
 import { onBeforeUnmount, onMounted,ref } from 'vue'
-import {GLStart} from './webgl-start1-lib/GLStart'
+import {GLStart} from './webgl-start-lib/GLStart'
 onMounted(() => {
   initWebgl()
   // 全局

@@ -24,3 +24,5 @@
 <!--  数据库比较 absurd-sql -->
 <!-- 浮雕风格 突起 https://neumorphism.io/#5e5555 -->
 <!-- 部件库 https://uiverse.io/ -->
+
+<!-- 不过早考虑 表结构细节 分个人和团队 -->

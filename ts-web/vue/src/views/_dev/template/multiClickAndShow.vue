@@ -1,7 +1,7 @@
 <template>
   <div ></div>
 </template>
-
+<!-- 
 <script setup>
 import { ref, reactive, toRefs, onBeforeMount, onMounted, watchEffect, computed } from 'vue';
 import { useStore } from 'vuex';
@@ -39,4 +39,4 @@ defineExpose({
 
 </script>
 <style scoped lang='less'>
-</style>
+</style> -->

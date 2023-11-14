@@ -92,24 +92,12 @@ const routerAll = reactive({
           name: 'libBase 依赖库引入基础测试',
           child: [
           {
-              name: '原生webgl',
-              url: '/_dev/libBase/webgl-start'
-            },
-            {
               name: 'babylon引入',
               url: '/_dev/libBase/babylon-start'
             },
             {
-              name: 'openlayer引入',
-              url: '/_dev/libBase/openlayer-start'
-            },
-            {
               name: 'cesium引入',
               url: '/_dev/libBase/cesium-start'
-            },
-            {
-              name: 'threejs引入',
-              url: '/_dev/libBase/threejs-start'
             },
             {
               name: 'jsts(jts)引入',
@@ -120,17 +108,35 @@ const routerAll = reactive({
               url: '/_dev/libBase/marked-start'
             },
             {
-              name: 'monaco引入',
-              url: '/_dev/libBase/monaco--start'
-            },
-            {
               name: 'mediapipe人脸识别引入',
               url: '/_dev/libBase/mediapipe-start'
+            },
+            {
+              name: 'monaco引入',
+              url: '/_dev/libBase/monaco--start'
             },
             {
               name: 'opencv引入',
               url: '/_dev/libBase/opencv-start'
             },
+            // 
+          {
+              name: '原生webgl',
+              url: '/_dev/libBase/webgl-start'
+            },
+
+            {
+              name: 'openlayer引入',
+              url: '/_dev/libBase/openlayer-start'
+            },
+
+            {
+              name: 'threejs引入',
+              url: '/_dev/libBase/threejs-start'
+            },
+
+
+
             {
               name: 'tf引入',
               url: '/_dev/libBase/tf-start'

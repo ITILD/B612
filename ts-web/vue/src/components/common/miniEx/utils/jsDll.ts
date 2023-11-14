@@ -1,5 +1,5 @@
 /**
- * js动态库
+ * js动态库  todo 单例
  * eg:const OPENCV_URL = "https://docs.opencv.org/3.4.5/opencv.js";
       await loadJsLib(OPENCV_URL);
  * @param {string} url

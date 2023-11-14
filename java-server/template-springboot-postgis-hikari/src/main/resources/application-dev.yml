@@ -7,11 +7,13 @@ spring:
   datasource:
     driverClassName: org.postgresql.Driver
     # url: jdbc:postgresql://localhost/PipeBatch?allowMultiQueries=true&charSet=UTF-8
-    url: jdbc:postgresql://localhost:4456/postgres?allowMultiQueries=true&charSet=UTF-8
+#    url: jdbc:postgresql://localhost:4456/postgres?allowMultiQueries=true&charSet=UTF-8
+    url: jdbc:postgresql://localhost:5432/DataTest?allowMultiQueries=true&charSet=UTF-8
     # url: jdbc:postgresql://127.0.0.1:4456/postgres?allowMultiQueries=true&charSet=UTF-8
     # url: jdbc:postgresql://82.157.51.203:4456/postgres?allowMultiQueries=true&charSet=UTF-8
     username: postgres
-    password: '[2,2,3]*[2,2,3]==14isflase'
+#    password: '[2,2,3]*[2,2,3]==14isflase'
+    password: 123456
     hikari:
       minimum-idle: 5
       maximum-pool-size: 15

@@ -16,11 +16,11 @@ import { onMounted, onBeforeUnmount } from 'vue'
 import { loadJsDll } from '@/components/common/miniEx/utils/jsDll'
 // vue
 onMounted(() => {
-  initMap()
+  init()
 })
 onBeforeUnmount(() => {})
 const $ = (id: string) => document.getElementById(id)
-const initMap = async () => {
+const init = async () => {
   // 同步加载cv
   const OPENCV_URL = 'https://docs.opencv.org/3.4.5/opencv.js'
   await loadJsDll(OPENCV_URL)

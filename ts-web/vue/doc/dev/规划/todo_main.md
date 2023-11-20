@@ -19,3 +19,6 @@
 <!-- https://api.weatherapi.com/v1/current.json?q=38.4%2C121.5&key=yb720c8e7865e4efbbde25122230411 -->
 
 <!-- java 提供生态api   postgis ortools等 -->
+
+
+<!-- 上传shp等格式  1先解析部分展示 (前端)看字符等问题  2放在indeixdb -->

@@ -1,10 +1,14 @@
 <template>
-  <div class="this-page">
-    <!-- 地图-->
-    <canvas id="glDom" class="glDom"></canvas>
+  <div class="out-page">
+    <div id="this-page" class="this-page">
+    
   </div>
-</template>
+  <!-- 场景-->
+  <canvas id="glDom" class="glDom"></canvas>
+  </div>
 
+</template>
+id
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount } from 'vue'
 // import {Engine,Scene,ArcRotateCamera,Vector3,HemisphericLight,PointLight,MeshBuilder} from 'babylonjs';
@@ -23,6 +27,7 @@ onBeforeUnmount(() => {
 })
 const initMap = () => {
   // Get the canvas DOM element
+  setCanvasWidthHeight()
   const canvas = document.getElementById('glDom') as HTMLCanvasElement // 得到canvas对象的引用
   // Load the 3D engine // 初始化 BABYLON 3D engine
   engine = new BABYLON.Engine(canvas, true, {
@@ -56,21 +61,41 @@ const initMap = () => {
   })
   // the canvas/window resize event handler 监听浏览器改变大小的事件，通过调用engine.resize()来自适应窗口大小
   window.addEventListener('resize', function () {
+    setCanvasWidthHeight()
     engine.resize()
   })
+}
+
+let setCanvasWidthHeight = () => {
+  const domDiv = document.getElementById('this-page') as HTMLElement // 得到canvas对象的引用
+  const width = domDiv.clientWidth
+  const height = domDiv.clientHeight
+  const canvas = document.getElementById('glDom') as HTMLCanvasElement // 得到canvas对象的引用
+  canvas.width = width
+  canvas.height = height
 }
 </script>
 
 <style scoped>
+.out-page {
+  position: relative;
+  max-height: 100%;
+  width: 100%;
+  /* height: 100%; */
+  overflow: hidden;
+
+}
 .this-page {
-  max-height:100% ;
+  position: absolute;
+  /* max-height: 100%; */
   width: 100%;
   height: 100%;
   overflow: hidden;
+
 }
 .glDom {
-  width: 100%;
-  height:100%;
+  z-index: 10;
+  position: absolute;
   overflow: hidden;
 }
 </style>

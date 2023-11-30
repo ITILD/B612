@@ -1,14 +1,13 @@
 <template>
-  <div class="out-page">
-    <div id="this-page" class="this-page">
-    
-  </div>
   <!-- 场景-->
-  <canvas id="glDom" class="glDom"></canvas>
+  <div class="main">
+    <div class="canvasPP">
+      <div id="canvasP" class="canvasP">
+        <canvas id="glDom" class="glDom"></canvas>
+      </div>
+    </div>
   </div>
-
 </template>
-id
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount } from 'vue'
 // import {Engine,Scene,ArcRotateCamera,Vector3,HemisphericLight,PointLight,MeshBuilder} from 'babylonjs';
@@ -27,7 +26,6 @@ onBeforeUnmount(() => {
 })
 const initMap = () => {
   // Get the canvas DOM element
-  setCanvasWidthHeight()
   const canvas = document.getElementById('glDom') as HTMLCanvasElement // 得到canvas对象的引用
   // Load the 3D engine // 初始化 BABYLON 3D engine
   engine = new BABYLON.Engine(canvas, true, {
@@ -60,41 +58,44 @@ const initMap = () => {
     scene.render()
   })
   // the canvas/window resize event handler 监听浏览器改变大小的事件，通过调用engine.resize()来自适应窗口大小
-  window.addEventListener('resize', function () {
-    setCanvasWidthHeight()
-    engine.resize()
-  })
-}
+  // window.addEventListener('resize', function () {
+  //   engine.resize()
+  // })
 
-let setCanvasWidthHeight = () => {
-  const domDiv = document.getElementById('this-page') as HTMLElement // 得到canvas对象的引用
-  const width = domDiv.clientWidth
-  const height = domDiv.clientHeight
-  const canvas = document.getElementById('glDom') as HTMLCanvasElement // 得到canvas对象的引用
-  canvas.width = width
-  canvas.height = height
+  // 监听元素变化
+  let tempSetTime: number
+  const resizeObserver = new ResizeObserver(() =>{
+    tempSetTime && clearTimeout(tempSetTime);
+    tempSetTime = setTimeout(() => {
+      engine.resize()
+    }, 15);
+  })
+  resizeObserver.observe(document.getElementById('canvasP')as HTMLElement)
+  //// resizeObserver.unobserve(canvasP)// 取消监听元素
 }
 </script>
 
 <style scoped>
-.out-page {
-  position: relative;
-  max-height: 100%;
-  width: 100%;
-  /* height: 100%; */
-  overflow: hidden;
-
-}
-.this-page {
-  position: absolute;
-  /* max-height: 100%; */
+.main {
   width: 100%;
   height: 100%;
   overflow: hidden;
-
+}
+.canvasPP {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.canvasP {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 .glDom {
   z-index: 10;
+  width: 100%;
+  height: 100%;
   position: absolute;
   overflow: hidden;
 }

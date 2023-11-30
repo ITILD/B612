@@ -1,7 +1,9 @@
 //cesiumMap.vue
 <template>
   <div class="main">
-    <div id="cesiumContainer" class="cesiumContainer"></div>
+    <div class="canvasPP">
+      <div id="cesiumContainer" class="canvasP"></div>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
@@ -78,10 +80,18 @@ const initMap = () => {
 .main {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  background-color: blanchedalmond;
+  /* overflow: hidden;
+  background-color: blanchedalmond; */
 }
-.cesiumContainer {
+.canvasPP {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+.canvasP {
+  position: absolute;
   width: 100%;
   height: 100%;
   z-index: 9999;

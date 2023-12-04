@@ -113,7 +113,7 @@ const routerAll = reactive({
             },
             {
               name: 'monaco引入',
-              url: '/_dev/libBase/monaco--start'
+              url: '/_dev/libBase/monaco-start'
             },
             {
               name: 'opencv引入',

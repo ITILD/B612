@@ -10,7 +10,7 @@ const routes = [
   ...routerDev
 ]
 
-// 生成路由
+// 生成路由  注意nginx发布配置 添加跳转
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: routes

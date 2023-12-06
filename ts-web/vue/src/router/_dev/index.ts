@@ -1,6 +1,5 @@
 const routerDev = [
-  // 已添加
-  { path: '/_dev', component: () => import('@/views/_dev/index-page.vue') },
+
   // gl
   // gis
   { path: '/_dev/gis/map2d-ol-ext-start', component: () => import('@/views/_dev/gis/map2d-ol-ext-page.vue') },
@@ -26,7 +25,13 @@ const routerDev = [
   { path: '/_dev/libBase/webgl-start', component: () => import('@/views/_dev/libBase/webgl-start-page.vue') },
   { path: '/_dev/libBase/jsts-start', component: () => import('@/views/_dev/libBase/jsts-start-page.vue') },
   { path: '/_dev/libBase/monaco-start', component: () => import('@/views/_dev/libBase/monaco-start-page.vue') },
-  { path: '/_dev/libBase/marked-start', component: () => import('@/views/_dev/libBase/marked-start-page.vue') }
-
+  { path: '/_dev/libBase/pina-start', component: () => import('@/views/_dev/libBase/pina-start-page.vue') },
+  { path: '/_dev/libBase/marked-start', component: () => import('@/views/_dev/libBase/marked-start-page.vue') },
+  // template
+  { path: '/_dev/template/multiClickAndShow', component: () => import('@/views/_dev/template/multiClickAndShow.vue') },
+  { path: '/_dev/template/staticShow', component: () => import('@/views/_dev/template/staticShow.vue') },
+  { path: '/_dev/template/vscodeTips', component: () => import('@/views/_dev/template/vscodeTips.vue') },
+  // 路由首页
+  { path: '/_dev', component: () => import('@/views/_dev/index-page.vue') }
 ]
 export { routerDev }

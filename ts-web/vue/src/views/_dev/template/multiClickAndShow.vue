@@ -1,5 +1,5 @@
 <template>
-  <div ></div>
+  <div >多按钮测试</div>
 </template>
 <!-- 
 <script setup>

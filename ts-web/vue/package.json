@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "pnpm_i": "pnpm i",
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0",
     "tauri dev": "pnpm tauri dev",
     "tauri build": "pnpm tauri build",
     "build": "vue-tsc --noEmit && vite build",

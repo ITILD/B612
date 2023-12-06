@@ -135,6 +135,11 @@ const routerAll = reactive({
               url: '/_dev/libBase/threejs-start'
             },
 
+            {
+              name: 'pina引入',
+              url: '/_dev/libBase/pina-start'
+            },
+
 
 
             {
@@ -206,12 +211,20 @@ const routerAll = reactive({
           name: 'template',
           child: [
             {
-              name: '多点击展示模板',
-              url: '/_dev/beauty/multiClickAndShow'
+              name: '多按钮展示模板',
+              url: '/_dev/template/multiClickAndShow'
+            },
+            {
+              name: '多格静态展示',
+              url: '/_dev/template/staticShow'
             },
             {
               name: 'vscode的vue基础模板',
-              url: '/_dev/beauty/vscodeTips'
+              url: '/_dev/template/vscodeTips'
+            },
+            {
+              name: 'vscode的vue基础模板',
+              url: '/_dev/template/staticShow'
             },
           ]
         },

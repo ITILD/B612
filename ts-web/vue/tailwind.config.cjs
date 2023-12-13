@@ -17,5 +17,8 @@ module.exports = {
       // }
     },
   },
-  plugins: [],
+  plugins: [
+    // 排版 防止marked渲染出html被base更改 https://tailwindcss.com/docs/typography-plugin
+    require('@tailwindcss/typography'),
+  ],
 }

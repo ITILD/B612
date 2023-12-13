@@ -5,6 +5,7 @@ specifiers:
   '@mediapipe/tasks-vision': ^0.10.7
   '@playwright/test': ^1.31.1
   '@rushstack/eslint-patch': ^1.2.0
+  '@tailwindcss/typography': ^0.5.10
   '@tauri-apps/api': ^1.2.0
   '@tauri-apps/cli': ^1.2.2
   '@types/jsdom': ^21.1.0
@@ -26,6 +27,7 @@ specifiers:
   jsdom: ^21.1.0
   jsts: ^2.11.0
   marked: ^5.0.4
+  marked-highlight: ^2.0.9
   monaco-editor: ^0.38.0
   npm-run-all: ^4.1.5
   ol: ^7.3.0
@@ -53,6 +55,7 @@ dependencies:
   '@types/marked': registry.npmmirror.com/@types/marked/5.0.0
   jsts: registry.npmmirror.com/jsts/2.11.0
   marked: registry.npmmirror.com/marked/5.0.4
+  marked-highlight: registry.npmmirror.com/marked-highlight/2.0.9_marked@5.0.4
   monaco-editor: registry.npmmirror.com/monaco-editor/0.38.0
   ol: registry.npmmirror.com/ol/7.3.0
   ol-ext: registry.npmmirror.com/ol-ext/4.0.8_ol@7.3.0
@@ -65,6 +68,7 @@ dependencies:
 devDependencies:
   '@playwright/test': registry.npmmirror.com/@playwright/test/1.31.2
   '@rushstack/eslint-patch': registry.npmmirror.com/@rushstack/eslint-patch/1.2.0
+  '@tailwindcss/typography': registry.npmmirror.com/@tailwindcss/typography/0.5.10_tailwindcss@3.2.7
   '@tauri-apps/cli': registry.npmmirror.com/@tauri-apps/cli/1.2.3
   '@types/jsdom': registry.npmmirror.com/@types/jsdom/21.1.0
   '@types/jsts': registry.npmmirror.com/@types/jsts/0.17.18
@@ -690,6 +694,21 @@ packages:
     version: 3.2.0
     dependencies:
       jspdf: registry.npmmirror.com/jspdf/2.5.1
+    dev: true
+
+  registry.npmmirror.com/@tailwindcss/typography/0.5.10_tailwindcss@3.2.7:
+    resolution: {integrity: sha512-Pe8BuPJQJd3FfRnm6H0ulKIGoMEQS+Vq01R6M5aCrFB/ccR/shT+0kXLjouGC1gFLm9hopTFN+DMP0pfwRWzPw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@tailwindcss/typography/-/typography-0.5.10.tgz}
+    id: registry.npmmirror.com/@tailwindcss/typography/0.5.10
+    name: '@tailwindcss/typography'
+    version: 0.5.10
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders'
+    dependencies:
+      lodash.castarray: registry.npmmirror.com/lodash.castarray/4.4.0
+      lodash.isplainobject: registry.npmmirror.com/lodash.isplainobject/4.0.6
+      lodash.merge: registry.npmmirror.com/lodash.merge/4.6.2
+      postcss-selector-parser: registry.npmmirror.com/postcss-selector-parser/6.0.10
+      tailwindcss: registry.npmmirror.com/tailwindcss/3.2.7_postcss@8.4.21
     dev: true
 
   registry.npmmirror.com/@tauri-apps/api/1.2.0:
@@ -3495,6 +3514,18 @@ packages:
       p-locate: registry.npmmirror.com/p-locate/5.0.0
     dev: true
 
+  registry.npmmirror.com/lodash.castarray/4.4.0:
+    resolution: {integrity: sha512-aVx8ztPv7/2ULbArGJ2Y42bG1mEQ5mGjpdvrbJcJFU3TbYybe+QlLS4pst9zV52ymy2in1KpFPiZnAOATxD4+Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lodash.castarray/-/lodash.castarray-4.4.0.tgz}
+    name: lodash.castarray
+    version: 4.4.0
+    dev: true
+
+  registry.npmmirror.com/lodash.isplainobject/4.0.6:
+    resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz}
+    name: lodash.isplainobject
+    version: 4.0.6
+    dev: true
+
   registry.npmmirror.com/lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lodash.merge/-/lodash.merge-4.6.2.tgz}
     name: lodash.merge
@@ -3550,6 +3581,17 @@ packages:
     resolution: {integrity: sha512-f+NBjJJY4T3dHtlEz1wCG7YFlkODEjFIYlxDdLIDMNpkSksqTt+l/d4rjuwItxuzkuMFvPyrjzV2lxRM4ePcIA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mapbox-to-css-font/-/mapbox-to-css-font-2.4.2.tgz}
     name: mapbox-to-css-font
     version: 2.4.2
+    dev: false
+
+  registry.npmmirror.com/marked-highlight/2.0.9_marked@5.0.4:
+    resolution: {integrity: sha512-HAK1WJSK6CGVDzplOf6layWFz1lHm8Fsjd+SEUYmLhAZmM8TlYmErC/hTphoiOxogYqGQGt3Ghug3Yhs+s+3jw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/marked-highlight/-/marked-highlight-2.0.9.tgz}
+    id: registry.npmmirror.com/marked-highlight/2.0.9
+    name: marked-highlight
+    version: 2.0.9
+    peerDependencies:
+      marked: '>=4 <12'
+    dependencies:
+      marked: registry.npmmirror.com/marked/5.0.4
     dev: false
 
   registry.npmmirror.com/marked/5.0.4:
@@ -4194,6 +4236,16 @@ packages:
     dependencies:
       postcss: registry.npmmirror.com/postcss/8.4.21
       postcss-selector-parser: registry.npmmirror.com/postcss-selector-parser/6.0.11
+    dev: true
+
+  registry.npmmirror.com/postcss-selector-parser/6.0.10:
+    resolution: {integrity: sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/postcss-selector-parser/-/postcss-selector-parser-6.0.10.tgz}
+    name: postcss-selector-parser
+    version: 6.0.10
+    engines: {node: '>=4'}
+    dependencies:
+      cssesc: registry.npmmirror.com/cssesc/3.0.0
+      util-deprecate: registry.npmmirror.com/util-deprecate/1.0.2
     dev: true
 
   registry.npmmirror.com/postcss-selector-parser/6.0.11:

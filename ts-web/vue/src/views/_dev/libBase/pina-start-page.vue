@@ -50,4 +50,4 @@ const clickCout = () => {
   overflow: hidden;
 }
 </style>
-@/stores/pina-start
+<!-- @/stores/pina-start -->

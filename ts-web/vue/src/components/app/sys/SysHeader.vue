@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900">
+  <header class="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900" v-show="sysStyle.headShow">
     <div class="flex flex-wrap justify-between items-center mx-auto p-4">
       <router-link to="/" class="flex items-center">
         <img src="@/assets/star.svg" class="h-8 mr-3" alt="Flowbite Logo" />
@@ -75,7 +75,6 @@
                   </ShowHidden>
                 </MinPopover>
               </li>
-              <li>{{ sysStyle.headShow }}</li>
             </ul>
           </span>
         </ShowHidden>

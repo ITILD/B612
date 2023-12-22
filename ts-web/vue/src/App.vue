@@ -17,7 +17,7 @@ import SysFooter from './components/app/sys/SysFooter.vue'
 <style>
 html,
 body {
-  position: absolute;
+  /* position: absolute; */
   height: 100%;
   width: 100%;
   background-color: rgb(218, 218, 218);

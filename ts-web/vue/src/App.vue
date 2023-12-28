@@ -2,6 +2,7 @@
   <SysHeader />
   <RouterView />
   <SysFooter />
+  <!-- 非正常结构 弹窗类 控制类 异步加载-->
 </template>
 
 <script setup lang="ts">

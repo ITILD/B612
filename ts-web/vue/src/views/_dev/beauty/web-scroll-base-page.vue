@@ -117,7 +117,8 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref, watch } from 'vue'
+// 传入scrollRef0！！！！！！！！！！！！！！！！
+import { onMounted, onBeforeUnmount, ref, watch, type Ref } from 'vue'
 const scrollRef0 = ref<null | HTMLElement>(null)
 const railRef0 = ref<null | HTMLElement>(null)
 const scrollRef1 = ref<null | HTMLElement>(null)
@@ -128,7 +129,7 @@ const railRef2 = ref<null | HTMLElement>(null)
 onMounted(() => {
   basScroll0()
   basScroll1()
-  basScroll2()
+  basScroll2(scrollRef2,railRef2)
 })
 onBeforeUnmount(() => {})
 
@@ -178,9 +179,9 @@ const basScroll1 = () => {
 /**
  * 
  */
-const basScroll2 = () => {
-  const scrollRef = scrollRef2
-  const railRef = railRef2
+const basScroll2 = (scrollRef: Ref<HTMLElement | null>,railRef: Ref<HTMLElement | null>) => {
+  // const scrollRef = scrollRef2
+  // const railRef = railRef2
   let fatherScrollHeight, fatherClientHeight: number // 父高度,滚动高度
   const warp = scrollRef.value as Element
   fatherClientHeight = warp.clientHeight // 获取父高度

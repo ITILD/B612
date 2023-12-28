@@ -45,7 +45,8 @@ body {
 /* 滚动条整体 高度写不写，都不影响，因为会根据内容的长度自动计算*/
 
 .scroll::-webkit-scrollbar {
-  width: 8px;
+  /* width: 8px; */
+  width: 0px;
 }
 /* 两个滚动条交接处 -- x轴和y轴 */
 .scroll-container::-webkit-scrollbar-corner {

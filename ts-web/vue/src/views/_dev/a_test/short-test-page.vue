@@ -381,12 +381,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineComponent, ref, watch } from 'vue'
-import { storeToRefs } from 'pinia'
-import { sysSettingStore } from '@/stores/sys'
-const { sysStyle } = storeToRefs(sysSettingStore())
-sysStyle.value.headShow = true
-console.log('跳转')
 </script>
 <style scoped>
 </style>

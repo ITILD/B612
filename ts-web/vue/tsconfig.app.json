@@ -1,10 +1,11 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
-  // ts检查列表
-  "include": ["env.d.ts","src/*","src/**/*", "types/globle.d.ts"],
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["env.d.ts", "src/**/*"],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
+    "allowJs": true,
     "composite": true,
+    "noEmit": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

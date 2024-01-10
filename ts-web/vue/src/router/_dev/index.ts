@@ -1,5 +1,4 @@
 const routerDev = [
-
   // gl
   // gis
   { path: '/_dev/gis/map2d-ol-ext-start', component: () => import('@/views/_dev/gis/map2d-ol-ext-page.vue') },

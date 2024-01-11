@@ -139,9 +139,10 @@ const routerAll = reactive({
               name: 'pina引入',
               url: '/_dev/libBase/pina-start'
             },
-
-
-
+            {
+              name: 'videojs引入',
+              url: '/_dev/libBase/video-js-start'
+            },
             {
               name: 'tf引入',
               url: '/_dev/libBase/tf-start'

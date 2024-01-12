@@ -1,6 +1,6 @@
 <template>
   <video id="my-video" class="video-js"  preload="auto" controls playsinline >
-    <source src="/video/test.mp4">
+    <source src="/static/video/oceans.mp4">
   </video>
 </template>
 

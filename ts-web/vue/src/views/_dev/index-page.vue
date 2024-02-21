@@ -1,26 +1,33 @@
 <template>
-  <div>
-    <!-- 重要路由 -->
+  <!-- 重要路由 -->
+  <div class="grid grid-cols-5">
     <template v-for="L1 in routerAll.rootMain" :key="L1.name">
-      <div v-if="L1" class="block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
-        <div v-for="L2 in L1.child" :key="L2.name" class="max-w-sm h-96  border border-gray-200">
-          <h2 class="text-lg bg-blue-300 hover:invert">{{L1.name +'          '+ L2.name }}</h2>
+      <template v-if="L1.child">
+        <div v-for="L2 in L1.child" :key="L2.name" class="h-96  border border-gray-200  hover:invert">
+          <!-- 图片链接 -->
+          <!-- 名字 todo 介绍-->
+          <h2 class="text-lg bg-blue-300">{{ L1.name + ' ' + L2.name }}</h2>
+
         </div>
-      </div>
+      </template>
     </template>
-    <!-- 所有路由 -->
+  </div>
+  <!-- 所有路由 -->
+  <div>
     <template v-for="L1 in routerAll.rootAll" :key="L1.name">
-      <div v-if="L1" >
+      <div v-if="L1&&L1.child&&L1.child.length>0">
         <!-- 1级大类 -->
         <h1 class="text-xl bg-blue-700">{{ L1.name }}</h1>
         <!-- 2级分类 -->
-        <div v-for="L2 in L1.child" :key="L2.name">
-          <h2 class="text-lg bg-blue-300">{{ L2.name }}</h2>
-          <!-- 3级具体 -->
-          <div v-for="L3 in L2.child" :key="L3.name">
-            <router-link :to="L3.url" class="text-lg bg-blue-100 hover:invert">{{ L3.name }}</router-link>
+        <div class="grid grid-cols-5">
+          <div v-for="L2 in L1.child" :key="L2.name">
+            <h2 class="text-lg bg-blue-300">{{ L2.name }}</h2>
+            <!-- 3级具体 -->
+            <div v-for="L3 in L2.child" :key="L3.name">
+              <router-link :to="L3.url" class="text-lg bg-blue-100 hover:invert">{{ L3.name }}</router-link>
+            </div>
+            <!--  -->
           </div>
-          <!--  -->
         </div>
       </div>
     </template>
@@ -61,7 +68,21 @@ const routerAll = reactive({
       ]
     },
     {
-      name: 'voice'
+      name: 'voice',
+      child: [
+        {
+          img: '',
+          name: 'test0'
+        },
+        {
+          img: '',
+          name: 'test1'
+        },
+        {
+          img: '',
+          name: 'test2'
+        }
+      ]
     },
     {
       name: 'fun'
@@ -84,69 +105,7 @@ const routerAll = reactive({
           img: '',
           name: 'gl',
           child: [
- 
-          ]
-        },
-        {
-          img: '',
-          name: 'libBase 依赖库引入基础测试',
-          child: [
-          {
-              name: 'babylon引入',
-              url: '/_dev/libBase/babylon-start'
-            },
-            {
-              name: 'cesium引入',
-              url: '/_dev/libBase/cesium-start'
-            },
-            {
-              name: 'jsts(jts)引入',
-              url: '/_dev/libBase/jsts-start'
-            },
-            {
-              name: 'marked-引入',
-              url: '/_dev/libBase/marked-start'
-            },
-            {
-              name: 'mediapipe人脸识别引入',
-              url: '/_dev/libBase/mediapipe-start'
-            },
-            {
-              name: 'monaco引入',
-              url: '/_dev/libBase/monaco-start'
-            },
-            {
-              name: 'opencv引入',
-              url: '/_dev/libBase/opencv-start'
-            },
-            // 
-          {
-              name: '原生webgl',
-              url: '/_dev/libBase/webgl-start'
-            },
 
-            {
-              name: 'openlayer引入',
-              url: '/_dev/libBase/openlayer-start'
-            },
-
-            {
-              name: 'threejs引入',
-              url: '/_dev/libBase/threejs-start'
-            },
-
-            {
-              name: 'pina引入',
-              url: '/_dev/libBase/pina-start'
-            },
-            {
-              name: 'videojs引入',
-              url: '/_dev/libBase/video-js-start'
-            },
-            {
-              name: 'tf引入',
-              url: '/_dev/libBase/tf-start'
-            }
           ]
         },
         {
@@ -229,6 +188,80 @@ const routerAll = reactive({
             },
           ]
         },
+      ]
+    },
+    {
+      name: 'DevTool',
+      child: [
+        {
+          img: '',
+          name: '环境配置',
+          child: [
+
+          ]
+        },
+        {
+          img: '',
+          name: 'web jslib引入',
+          child: [
+            {
+              name: 'babylon引入',
+              url: '/_dev/libBase/babylon-start'
+            },
+            {
+              name: 'cesium引入',
+              url: '/_dev/libBase/cesium-start'
+            },
+            {
+              name: 'jsts(jts)引入',
+              url: '/_dev/libBase/jsts-start'
+            },
+            {
+              name: 'marked-引入',
+              url: '/_dev/libBase/marked-start'
+            },
+            {
+              name: 'mediapipe人脸识别引入',
+              url: '/_dev/libBase/mediapipe-start'
+            },
+            {
+              name: 'monaco引入',
+              url: '/_dev/libBase/monaco-start'
+            },
+            {
+              name: 'opencv引入',
+              url: '/_dev/libBase/opencv-start'
+            },
+            // 
+            {
+              name: '原生webgl',
+              url: '/_dev/libBase/webgl-start'
+            },
+
+            {
+              name: 'openlayer引入',
+              url: '/_dev/libBase/openlayer-start'
+            },
+
+            {
+              name: 'threejs引入',
+              url: '/_dev/libBase/threejs-start'
+            },
+
+            {
+              name: 'pina引入',
+              url: '/_dev/libBase/pina-start'
+            },
+            {
+              name: 'videojs引入',
+              url: '/_dev/libBase/video-js-start'
+            },
+            {
+              name: 'tf引入',
+              url: '/_dev/libBase/tf-start'
+            }
+          ]
+        }
       ]
     },
   ]

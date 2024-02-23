@@ -15,7 +15,7 @@
   <!-- 所有路由 -->
   <div>
     <template v-for="L1 in routerAll.rootAll" :key="L1.name">
-      <div v-if="L1&&L1.child&&L1.child.length>0">
+      <div v-if="L1 && L1.child && L1.child.length > 0">
         <!-- 1级大类 -->
         <h1 class="text-xl bg-blue-700">{{ L1.name }}</h1>
         <!-- 2级分类 -->
@@ -170,6 +170,14 @@ const routerAll = reactive({
           img: '',
           name: 'template',
           child: [
+            {
+              name: '通用vue组件基础',
+              url: '/_dev/template/componentBase'
+            },
+            {
+              name: '通用vue组件tailwindcss',
+              url: '/_dev/template/componentTailwindcss'
+            },
             {
               name: '多按钮展示模板',
               url: '/_dev/template/multiClickAndShow'

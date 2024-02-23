@@ -28,6 +28,8 @@ const routerDev = [
   { path: '/_dev/libBase/marked-start', component: () => import('@/views/_dev/libBase/marked-start-page.vue') },
   { path: '/_dev/libBase/video-js-start', component: () => import('@/views/_dev/libBase/video-js-start-page.vue') },
   // template
+  { path: '/_dev/template/componentBase', component: () => import('@/views/_dev/template/componentBase.vue') },
+  { path: '/_dev/template/componentTailwindcss', component: () => import('@/views/_dev/template/componentTailwindcss.vue') },
   { path: '/_dev/template/multiClickAndShow', component: () => import('@/views/_dev/template/multiClickAndShow.vue') },
   { path: '/_dev/template/staticShow', component: () => import('@/views/_dev/template/staticShow.vue') },
   { path: '/_dev/template/vscodeTips', component: () => import('@/views/_dev/template/vscodeTips.vue') },

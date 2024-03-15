@@ -1,12 +1,13 @@
 <template>
-  <header class="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900" v-show="sysStyle.headShow">
+  <!-- 网站页首 -->
+  <header v-show="sysStyle.headShow">
     <div class="flex flex-wrap justify-between items-center mx-auto p-4">
       <router-link to="/" class="flex items-center">
         <img src="@/assets/star.svg" class="h-8 mr-3" alt="Flowbite Logo" />
-        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">TESTHOME</span>
+        <span class="self-center text-2xl font-semibold whitespace-nowrap">Bnine Star</span>
       </router-link>
-
-      <!-- 小屏幕设备 下拉列表 -->
+      <!-- 网站导航栏 -->
+      <!-- 小屏幕设备 下拉列表开关 -->
       <button @click="isMenuOpen = !isMenuOpen" id="mega-menu-full-image-button"
         data-collapse-toggle="mega-menu-full-image" type="button"
         class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -19,6 +20,7 @@
             clip-rule="evenodd"></path>
         </svg>
       </button>
+      <!--导航栏 水平靠右(pc屏幕)下拉居中(小屏设备) -->
       <MinPopover v-model="isMenuOpen" id="mega-menu-full-image"
         class="items-center justify-between w-full md:w-auto md:order-1">
         <ShowHidden>
@@ -29,7 +31,6 @@
                   class="block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
                   aria-current="page" to="/">主页</RouterLink>
               </li>
-
               <!-- fun1 -->
               <li>
                 <button @click="showFun1 = !showFun1" id="mega-menu-full-cta-image-button"
@@ -67,11 +68,10 @@
                   设置
                 </button>
                 <MinPopover v-model="isSysSettingShow">
-                  <ShowHidden>
-                    <div v-show="isSysSettingShow"
-                      class="absolute z-10 grid grid-cols-3 rounded-lg p-2 w-11/12 text-xl bg-white border border-gray-100 dark:border-gray-700 dark:bg-gray-700 text-gray-900 md:pb-4 dark:text-white md:w-96 md:right-48 md:text-sm">
-                      <SysSetting></SysSetting>
-                    </div>
+                  <ShowHidden v-show="isSysSettingShow">
+
+                    <SysSetting></SysSetting>
+
                   </ShowHidden>
                 </MinPopover>
               </li>
@@ -85,10 +85,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import ShowHidden from '../../common/minUi/animation/ShowHidden.vue'
-import MinPopover from '../../common/minUi/button/MinPopover.vue'
+import MinPopover from '@/components/common/minUi/button/MinPopover.vue'
 import Func_1 from './head/Func_1.vue';
 import SysSetting from './head/SysSetting.vue';
+import ShowHidden from '@/components/common/minUi/animation/ShowHidden.vue'
 // 显隐控制
 import { storeToRefs } from 'pinia'
 import { sysSettingStore } from '@/stores/sys'

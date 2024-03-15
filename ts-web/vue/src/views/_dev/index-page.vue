@@ -123,7 +123,12 @@ const routerAll = reactive({
             },
             {
               name: '3d地图初始(cesium google 测试)',
-              url: '/_dev/gis/map3d-testgoogle',
+              url: '/_dev/gis/map3d-google-3dtiles',
+              type: 'test'
+            },
+            {
+              name: 'babylon测试球面剖分和相机调度',
+              url: '/_dev/gis/babylon-earth',
               type: 'test'
             }
           ]
@@ -189,11 +194,7 @@ const routerAll = reactive({
             {
               name: 'vscode的vue基础模板',
               url: '/_dev/template/vscodeTips'
-            },
-            {
-              name: 'vscode的vue基础模板',
-              url: '/_dev/template/staticShow'
-            },
+            }
           ]
         },
       ]

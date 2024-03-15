@@ -7,7 +7,15 @@ import { fileURLToPath, URL } from 'node:url'
 // cesium
 import cesium from 'vite-plugin-cesium'
 
+// VITE_SOME_KEY=123
+// DB_PASSWORD=foobar
+// import { loadEnv } from 'vite'
 const mobile = process.env.TAURI_PLATFORM === 'android' || process.env.TAURI_PLATFORM === 'ios'
+console.log("process.env: ", process.env.VITE_SOME_KEY);
+// console.log("loadEnv: ", loadEnv);
+// console.log("process.env: ", process);
+console.log("process.env: ",import.meta);
+
 // https://vitejs.dev/config/
 // export default defineConfig(async () => ({
 export default defineConfig({

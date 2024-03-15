@@ -1,5 +1,11 @@
+
+<template>
+  <div ref="dropdownRef">
+    <slot> </slot>
+  </div>
+</template>
+
 <script setup lang="ts">
-import { ref, watch } from 'vue'
 /**
  * 外部按钮优先   内部监听只负责监听非外部按钮事件且在当前组件区域外
  * 改变外部状态，点击外部自动关闭
@@ -10,6 +16,7 @@ import { ref, watch } from 'vue'
       <div  v-show="showFun">              
     const showFun = ref(false)
  */
+import { ref, watch } from 'vue'
 // 传入值
 const props = defineProps({ modelValue: { type: Boolean, required: false } })
 // 组件内监听点击   dropdownRef必须同名
@@ -35,8 +42,3 @@ const changeButton = (e: MouseEvent) => {
     emit('update:modelValue', false) //提交外部修改
 }
 </script>
-<template>
-  <div ref="dropdownRef">
-    <slot> </slot>
-  </div>
-</template>

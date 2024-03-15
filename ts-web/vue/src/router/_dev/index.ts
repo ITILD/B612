@@ -3,7 +3,8 @@ const routerDev = [
   // gis
   { path: '/_dev/gis/map2d-ol-ext-start', component: () => import('@/views/_dev/gis/map2d-ol-ext-page.vue') },
   { path: '/_dev/gis/map2d-ol-ext-copy', component: () => import('@/views/_dev/gis/map2d-ol-ext-copy-page.vue') },
-  { path: '/_dev/gis/map3d-testgoogle', component: () => import('@/views/_dev/gis/map3d-google-3dtiles-page.vue') },
+  { path: '/_dev/gis/map3d-google-3dtiles', component: () => import('@/views/_dev/gis/map3d-google-3dtiles-page.vue') },
+  { path: '/_dev/gis/babylon-earth', component: () => import('@/views/_dev/gis/babylon-earth-page.vue') },
   // map
   { path: '/_dev/beauty/web-design-base', component: () => import('@/views/_dev/beauty/web-design-base-page.vue') },
   { path: '/_dev/beauty/web-scroll-base-page', component: () => import('@/views/_dev/beauty/web-scroll-base-page.vue') },

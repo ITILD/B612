@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "pnpm_i": "pnpm i",
-    "dev": "vite --host 0.0.0.0",
+    "dev": "vite --host 0.0.0.0 --mode dev",
     "build-vue": "run-p type-check-vue build-only-vue",
     "tauri dev": "pnpm tauri dev",
     "tauri build": "pnpm tauri build",

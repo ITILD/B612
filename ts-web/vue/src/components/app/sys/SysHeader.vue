@@ -69,9 +69,7 @@
                 </button>
                 <MinPopover v-model="isSysSettingShow">
                   <ShowHidden v-show="isSysSettingShow">
-
                     <SysSetting></SysSetting>
-
                   </ShowHidden>
                 </MinPopover>
               </li>

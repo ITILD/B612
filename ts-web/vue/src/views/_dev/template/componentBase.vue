@@ -1,5 +1,5 @@
 <template>
-  <div >通用vue组件基础</div>
+  <div >通用vue组件tailwindcss</div>
   <BaseTable></BaseTable>
 
   

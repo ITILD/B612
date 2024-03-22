@@ -12,6 +12,7 @@
 import { onMounted, onBeforeUnmount } from 'vue'
 // import {Engine,Scene,ArcRotateCamera,Vector3,HemisphericLight,PointLight,MeshBuilder} from 'babylonjs';
 import * as BABYLON from '@babylonjs/core/Legacy/legacy'
+import {  } from "./babylon-earth-page/MathExtension";
 let scene: BABYLON.Scene
 let engine: BABYLON.Engine
 let camera: BABYLON.FreeCamera
